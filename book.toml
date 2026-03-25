@@ -2,7 +2,8 @@
 authors = ["Gabor Szabo"]
 language = "en"
 src = "src"
-title = "Web development with Rust Axum"
+title = "Web development with axum"
+description = ""
 
 # Add github icon to the menu
 [output.html]

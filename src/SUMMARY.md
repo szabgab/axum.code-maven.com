@@ -1,6 +1,6 @@
 # Summary
 
-- [Axum](./index.md)
+- [axum](./index.md)
   - [Goals](./goals.md)
   - [How to run the examples](./how-to-run-the-exampes.md)
   - [How to run the tests](./how-to-run-the-tests.md)
@@ -12,3 +12,5 @@
   - [Echo GET](./echo-get.md)
   - [Echo POST](./echo-post.md)
   - [Path parameters](./path-parameters.md)
+- [Input validation](./validation.md)
+  - [Versioning - path parameter with fixed values](./versioning.md)

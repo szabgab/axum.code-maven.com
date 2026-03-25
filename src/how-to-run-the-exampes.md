@@ -1,6 +1,7 @@
 # How to run the examples?
 
-You can run the examples either from the git repository of axum or as stand alone applications.
+You can run the examples directly from the git repository of the book.
+
 
 ```
 git clone https://github.com/szabgab/axum.code-maven.com.git
