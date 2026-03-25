@@ -8,10 +8,6 @@ Show how to accept parameters in a GET request.
 cargo run
 ```
 
-
-
-{{#include examples/echo-get/README.md }}
-
 ## Cargo.toml
 
 {% embed include file="src/examples/echo-get/Cargo.toml" %}
