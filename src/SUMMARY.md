@@ -11,3 +11,4 @@
   - [Hello web world](./hello-world.md)
   - [Echo GET](./echo-get.md)
   - [Echo POST](./echo-post.md)
+  - [Path parameters](./path-parameters.md)

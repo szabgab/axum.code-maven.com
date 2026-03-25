@@ -59,9 +59,9 @@ Failed to deserialize form body: missing field `text`
 
 ## The code
 
-{% embed include file="src/examples/echo-post/main.rs" %}
+{% embed include file="src/examples/echo-post/src/main.rs" %}
 
 
 ## Testing
 
-{% embed include file="src/examples/echo-post/tests.rs" %}
+{% embed include file="src/examples/echo-post/src/tests.rs" %}
