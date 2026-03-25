@@ -7,3 +7,5 @@
   - [Ecosystem](./ecosystem.md)
 - [Introduction](./introduction.md)
   - [Hello Plain world](./hello-plain-world.md)
+  - [Address already in use](./address-already-in-use.md)
+  - [Hello web world](./hello-world.md)
