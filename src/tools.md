@@ -13,6 +13,7 @@ The Rust crates and other tools that we are going to use in this book.
 * [http-body-util](https://crates.io/crates/http-body-util).
 * [tower](https://crates.io/crates/tower).
 * [serde](https://crates.io/crates/serde).
+* [mime](https://crates.io/crates/mime).
 
 ## Helper tools
 

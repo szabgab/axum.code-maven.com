@@ -8,7 +8,7 @@ use tower::ServiceExt;
 
 #[tokio::test]
 async fn test_main_page() {
-    let response = app()
+    let response = create_router()
         .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
         .await
         .unwrap();
@@ -23,7 +23,7 @@ async fn test_main_page() {
 
 #[tokio::test]
 async fn test_echo_with_data() {
-    let response = app()
+    let response = create_router()
         .oneshot(
             Request::builder()
                 .method(http::Method::POST)
@@ -48,7 +48,7 @@ async fn test_echo_with_data() {
 
 #[tokio::test]
 async fn test_echo_without_data() {
-    let response = app()
+    let response = create_router()
         .oneshot(
             Request::builder()
                 .method(http::Method::POST)
@@ -76,7 +76,7 @@ async fn test_echo_without_data() {
 
 #[tokio::test]
 async fn test_echo_missing_value() {
-    let response = app()
+    let response = create_router()
         .oneshot(
             Request::builder()
                 .method(http::Method::POST)
@@ -101,7 +101,7 @@ async fn test_echo_missing_value() {
 
 #[tokio::test]
 async fn test_echo_extra_param() {
-    let response = app()
+    let response = create_router()
         .oneshot(
             Request::builder()
                 .method(http::Method::POST)

@@ -5,19 +5,10 @@ use axum::{
 };
 use serde::Deserialize;
 
-#[tokio::main]
-async fn main() {
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
-        .await
-        .unwrap();
-    println!("listening on {}", listener.local_addr().unwrap());
-    axum::serve(listener, app()).await.unwrap();
-}
-
-fn app() -> Router {
-    Router::new()
-        .route("/", get(main_page))
-        .route("/echo", post(echo))
+#[derive(Debug, Deserialize)]
+#[allow(dead_code)]
+struct Params {
+    text: String,
 }
 
 async fn main_page() -> Html<&'static str> {
@@ -36,12 +27,20 @@ async fn echo(Form(params): Form<Params>) -> Html<String> {
     Html(format!(r#"You said: <b>{}</b>"#, params.text))
 }
 
-#[derive(Debug, Deserialize)]
-#[allow(dead_code)]
-struct Params {
-    text: String,
+fn create_router() -> Router {
+    Router::new()
+        .route("/", get(main_page))
+        .route("/echo", post(echo))
+}
+
+#[tokio::main]
+async fn main() {
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
+        .await
+        .unwrap();
+    println!("listening on {}", listener.local_addr().unwrap());
+    axum::serve(listener, create_router()).await.unwrap();
 }
 
 #[cfg(test)]
 mod tests;
-
