@@ -9,9 +9,10 @@ The Rust crates and other tools that we are going to use in this book.
 
 ## Testing crates
 
-* [headers](https://crates.io/crates/headers)
-* [http-body-util](https://crates.io/crates/http-body-util)
-* [tower](https://crates.io/crates/tower)
+* [headers](https://crates.io/crates/headers).
+* [http-body-util](https://crates.io/crates/http-body-util).
+* [tower](https://crates.io/crates/tower).
+* [serde](https://crates.io/crates/serde).
 
 ## Helper tools
 

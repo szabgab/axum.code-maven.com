@@ -2,19 +2,18 @@
 
 Show how to accept parameters in a GET request.
 
-## Running
+## Dependencies
 
-```sh
-cargo run
-```
+In addition to the dependencies already used in the earlier example we'll also need to use `serde` for serialization.
 
-## Cargo.toml
-
-{% embed include file="src/examples/echo-get/Cargo.toml" %}
+## Pages
 
 There are two function handling two paths:
 
 ## The main page is static HTML
+
+The rust code is the same as in previous example, but this time the HTML is a bit more complex.
+The browser will display a form with an entry box and a button that says "Echo".
 
 ```rust
 async fn main_page() -> Html<&'static str> {
@@ -29,14 +28,10 @@ async fn main_page() -> Html<&'static str> {
 }
 ```
 
-## The echo page
+Clicking on that button after typing in the text "Hello World" will bring the browser to a url:
+`/echo?text=Hello+World`. (The space was replaced by a + sign.)
 
-```rust
-async fn echo(Query(params): Query<Params>) -> Html<String> {
-    println!("params: {:?}", params);
-    Html(format!(r#"You said: <b>{}</b>"#, params.text))
-}
-```
+We need to create a struct representing the parameters of this query:
 
 ## Struct describing the parameters
 
@@ -48,20 +43,41 @@ struct Params {
 }
 ```
 
-## Mapping the routes to functions
+## The echo page is dynamic String
+
+A function that accepts a `Params` struct wrapped in a [Query](https://docs.rs/axum/0.8.8/axum/extract/struct.Query.html) struct. The variable `params` will be the deserialized value from the Query string. We can use it to create the string we are returning. We are now returning a String and not a static str because we need to create the string on the fly.
 
 ```rust
-fn app() -> Router {
+async fn echo(Query(params): Query<Params>) -> Html<String> {
+    println!("params: {:?}", params);
+    Html(format!(r#"You said: <b>{}</b>"#, params.text))
+}
+```
+
+
+## Mapping the routes to functions
+
+Then we map the two pathes to the appropriate functions:
+
+```rust
+fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
         .route("/echo", get(echo))
 }
 ```
 
+## Running
+
+```sh
+$ cargo run
+```
+
 ## GET the main page using curl
 
 ```
 $ curl http://localhost:3000/
+
 HTTP/1.1 200 OK
 content-type: text/html; charset=utf-8
 content-length: 131
@@ -73,6 +89,7 @@ date: Tue, 18 Mar 2025 08:04:53 GMT
     <input type="submit" value="Echo">
     </form>
 ```
+
 
 ## GET request with parameter
 
@@ -111,6 +128,11 @@ date: Tue, 18 Mar 2025 08:07:04 GMT
 
 You said: <b></b>
 ```
+
+## Cargo.toml
+
+{% embed include file="src/examples/echo-get/Cargo.toml" %}
+
 
 ## The full example
 
