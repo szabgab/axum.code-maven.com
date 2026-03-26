@@ -1,40 +1,21 @@
 use axum::{
+    RequestPartsExt, Router,
     extract::{FromRequestParts, Path},
-    http::{request::Parts, StatusCode},
+    http::{StatusCode, request::Parts},
     response::{Html, IntoResponse, Response},
     routing::get,
-    RequestPartsExt, Router,
 };
 use std::collections::HashMap;
-use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
-#[tokio::main]
-async fn main() {
-    tracing_subscriber::registry()
-        .with(
-            tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| format!("{}=debug", env!("CARGO_CRATE_NAME")).into()),
-        )
-        .with(tracing_subscriber::fmt::layer())
-        .init();
-
-    // build our application with some routes
-    let app = app();
-
-    // run it
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
-        .await
-        .unwrap();
-    tracing::debug!("listening on {}", listener.local_addr().unwrap());
-    axum::serve(listener, app).await.unwrap();
-}
-
-fn app() -> Router {
-    Router::new().route("/{version}/foo", get(handler))
-}
-
-async fn handler(version: Version) -> Html<String> {
-    Html(format!("received request with version {version:?}"))
+async fn main_page() -> Html<&'static str> {
+    Html(
+        r#"
+        <a href="/api/v1/status">v1</a><br>
+        <a href="/api/v2/status">v2</a><br>
+        <a href="/api/v3/status">v3</a><br>
+        <a href="/api/v4/status">v4</a><br>
+    "#,
+    )
 }
 
 #[derive(Debug)]
@@ -67,6 +48,26 @@ where
     }
 }
 
+async fn handle_api(version: Version) -> Html<String> {
+    Html(format!("received request with version {version:?}"))
+}
+
+fn create_router() -> Router {
+    Router::new()
+        .route("/", get(main_page))
+        .route("/api/{version}/status", get(handle_api))
+}
+
+#[tokio::main]
+async fn main() {
+    let app = create_router();
+
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
+        .await
+        .unwrap();
+    println!("listening on {}", listener.local_addr().unwrap());
+    axum::serve(listener, app).await.unwrap();
+}
+
 #[cfg(test)]
 mod tests;
-

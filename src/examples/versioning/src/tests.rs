@@ -1,14 +1,15 @@
-use super::*;
 use axum::{body::Body, http::Request, http::StatusCode};
 use http_body_util::BodyExt;
 use tower::ServiceExt;
 
+use super::*;
+
 #[tokio::test]
 async fn test_v1() {
-    let response = app()
+    let response = create_router()
         .oneshot(
             Request::builder()
-                .uri("/v1/foo")
+                .uri("/api/v1/status")
                 .body(Body::empty())
                 .unwrap(),
         )
@@ -25,10 +26,10 @@ async fn test_v1() {
 
 #[tokio::test]
 async fn test_v4() {
-    let response = app()
+    let response = create_router()
         .oneshot(
             Request::builder()
-                .uri("/v4/foo")
+                .uri("/api/v4/status")
                 .body(Body::empty())
                 .unwrap(),
         )
