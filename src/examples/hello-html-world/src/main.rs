@@ -1,4 +1,4 @@
-use axum::{response::Html, routing::get, Router};
+use axum::{Router, response::Html, routing::get};
 
 async fn handle_main_page() -> Html<&'static str> {
     Html("<h1>Hello, World!</h1>")
