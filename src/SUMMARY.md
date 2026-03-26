@@ -12,7 +12,7 @@
   - [Hello world on the command line](./hello-world-on-the-command-line.md)
   - [Hello Plain world](./hello-plain-world.md)
   - [Address already in use](./address-already-in-use.md)
-  - [Hello web world](./hello-world.md)
+  - [Hello HTML world](./hello-html-world.md)
   - [Echo GET](./echo-get.md)
   - [Echo POST](./echo-post.md)
   - [Path parameters](./path-parameters.md)

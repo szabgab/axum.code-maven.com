@@ -1,4 +1,4 @@
-# Hello web World
+# Hello HTML World
 
 The standard "Hello World" application.
 
@@ -7,8 +7,8 @@ The standard "Hello World" application.
 * Add axum and tokio with "full" feature.
 
 ```
-cargo new hello-world
-cd hello-world
+cargo new hello-html-world
+cd hello-html-world
 cargo add axum
 cargo add tokio -F full
 
@@ -22,7 +22,7 @@ This is how our `Cargo.toml` file looks like. As mentioned earlier, here in this
 You will have something like this: `axum = "0.8.1"`.
 
 
-{% embed include file="src/examples/hello-world/Cargo.toml" %}
+{% embed include file="src/examples/hello-html-world/Cargo.toml" %}
 
 In our application we need to map the path part of each URL the user might visit to a function to handle that request.
 For this we need a function to handle the request and we need the map the path portion of the URL to the function that will handle it.
@@ -164,9 +164,9 @@ mod tests;
 
 ### tests.rs
 
-{% embed include file="src/examples/hello-world/src/tests.rs" %}
+{% embed include file="src/examples/hello-html-world/src/tests.rs" %}
 
 ## The full example
 
-{% embed include file="src/examples/hello-world/src/main.rs" %}
+{% embed include file="src/examples/hello-html-world/src/main.rs" %}
 

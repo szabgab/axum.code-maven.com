@@ -1,12 +1,13 @@
-use super::*;
 use axum::{body::Body, http::Request, http::StatusCode};
 use headers::ContentType;
 use http_body_util::BodyExt;
 use tower::ServiceExt;
 
+use super::*;
+
 #[tokio::test]
 async fn test_main_page() {
-    let response = app()
+    let response = create_router()
         .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
         .await
         .unwrap();
