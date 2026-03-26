@@ -1,69 +1,35 @@
 # Hello HTML World
 
-The standard "Hello World" application.
+In the previous version of the standard "Hello World" application we sent some HTML, but the content type was set by axum to be `text/plain` and thus the browser showed the HTML tags in their natural beauty without renedring them.
 
+Let's improve that.
 
-* Create a new create
-* Add axum and tokio with "full" feature.
+You can reuse the same crate or create a new one. It is up to you.
 
-```
-cargo new hello-html-world
-cd hello-html-world
-cargo add axum
-cargo add tokio -F full
-
-cargo add --dev http-body-util
-cargo add --dev tower -F util
-```
-
-We also have two additional crates that we use to test our application.
-
-This is how our `Cargo.toml` file looks like. As mentioned earlier, here in this book we use the `axum` located in the same repository.
-You will have something like this: `axum = "0.8.1"`.
-
+This is how our `Cargo.toml` file looks like. I think besides the name, it is the same as in the previous example.
 
 {% embed include file="src/examples/hello-html-world/Cargo.toml" %}
 
-In our application we need to map the path part of each URL the user might visit to a function to handle that request.
-For this we need a function to handle the request and we need the map the path portion of the URL to the function that will handle it.
-For example if we would like to handle the URL `https://example.org/hello/world` then we need to map `/hello/world` path to the appropriate
-function in our application. In particular the address of the main page is `https://example.org/` and thus the path is `/`.
+## The code
 
-We defined a function to handle a request. To make it simple we return a static string with and HTML snippet.
-The name of the function does not matter.
+Let's only focus on the differences from the previous example.
+
+We are also going to use the [Html struct](https://docs.rs/axum/0.8.8/axum/response/struct.Html.html)  from `axum::response` so we import it:
 
 ```rust
-async fn handler() -> Html<&'static str> {
+use axum::{response::Html, routing::get, Router};
+```
+
+
+In the function that handles the request we wrap the result in the `Html` struct. We need to do it both in the signature of the function and in the actual return value.
+
+```rust
+async fn handle_main_page() -> Html<&'static str> {
     Html("<h1>Hello, World!</h1>")
 }
 ```
 
-We need to map the GET request that arrives to `/` to be handled by this function.
-We put the creation of the `Router` in a separate function to make it easy to test it.
-
-```rust
-fn app() -> Router {
-    Router::new().route("/", get(handler))
-}
-```
-
-
-Finally, we need to create our server in our `main` function.
-
-```rust
-#[tokio::main]
-async fn main() {
-    // build our application with a route
-    let app = app();
-
-    // run it
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
-        .await
-        .unwrap();
-    println!("listening on http://{}", listener.local_addr().unwrap());
-    axum::serve(listener, app).await.unwrap();
-}
-```
+All the rest is the same.
 
 
 To run the application type in the following command:
@@ -102,8 +68,7 @@ $ curl http://localhost:3000/
 <h1>Hello, World!</h1>
 ```
 
-We can also observe what happens if we try to access a page that does not exist. It seems that nothing happens which is rather inconvenient.
-This is the blank page we saw earlier.
+We can also observe what happens if we try to access a page that does not exist. It seems that nothing happens which is rather inconvenient. This is the blank page we saw earlier.
 
 ```
 $ curl http://localhost:3000/hi
@@ -150,23 +115,12 @@ You might dislike the fact visiting a non-existent path returns a blank page.
 
 Check out the example showing the [404 handler](./global-404-handler.md).
 
-## Testing
-
-Writing automated tests for your application can save you a lot of time down the road and you might even develop you application much faster if instead of checking it in a browser you write test. This is especially true if you are implementing an API which is designed to be consumed by other software anyway.
-
-
-In `main.rs` we need to mention the test module:
-
-```rust
-#[cfg(test)]
-mod tests;
-```
-
-### tests.rs
-
-{% embed include file="src/examples/hello-html-world/src/tests.rs" %}
-
 ## The full example
 
 {% embed include file="src/examples/hello-html-world/src/main.rs" %}
+
+## tests.rs
+
+{% embed include file="src/examples/hello-html-world/src/tests.rs" %}
+
 

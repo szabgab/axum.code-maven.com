@@ -1,4 +1,4 @@
-## Hello plain world!
+# Hello plain text world!
 
 In the very first example with axum we try to show **Hello World!**. In bold.
 

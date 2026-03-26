@@ -209,7 +209,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "hello-world"
+name = "hello-html-world"
 version = "0.1.0"
 dependencies = [
  "axum",
