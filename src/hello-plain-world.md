@@ -2,7 +2,8 @@
 
 In the very first example we try to show **Hello World!**.
 
-The application depends on `axum` and `tokio`. The tests have some other dependencies. See the `Cargo.toml` file for the list of dependencies.
+The application depends on `axum` and `tokio`. We also have tests. They have some other dependencies. See the `Cargo.toml` file for the list of dependencies.
+
 
 ## Cargo.toml
 
@@ -12,7 +13,7 @@ The application depends on `axum` and `tokio`. The tests have some other depende
 ## Run with
 
 ```
-cargo run -p example-hello-text
+cargo run
 ```
 
 then visit `http://localhost:3000/`

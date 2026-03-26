@@ -83,18 +83,6 @@ You can then open your browser and visit that address.
 You should see **Hello World!** in big letters.
 
 
-## Troubleshooting
-
-If when you run `cargo run` it gives you an error like this, then you have another process running and using the 3000 port.
-Maybe another example from the axum repository. You can either find the application, shut it down and try to run this again,
-or you can change the port number in this example from 3000 to 3001 or some other number and try again.
-
-```
-thread 'main' panicked at examples/hello-world/src/main.rs:17:10:
-called `Result::unwrap()` on an `Err` value: Os { code: 98, kind: AddrInUse, message: "Address already in use" }
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-```
-
 ## Handling other pages
 
 If you try to visit some other page on your server e.g. `http://127.0.0.1:3000/hi` you will get a blank page.
@@ -176,7 +164,7 @@ mod tests;
 
 ### tests.rs
 
-{% embed include file="src/examples/hello-world/src/test.rs" %}
+{% embed include file="src/examples/hello-world/src/tests.rs" %}
 
 ## The full example
 

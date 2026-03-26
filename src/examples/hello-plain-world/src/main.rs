@@ -1,5 +1,14 @@
 use axum::{routing::get, Router};
 
+async fn handle_main_page() -> &'static str {
+    "<h1>Hello, World!</h1>"
+}
+
+fn app() -> Router {
+    Router::new().route("/", get(handle_main_page))
+}
+
+
 #[tokio::main]
 async fn main() {
     // build our application with a route
@@ -11,14 +20,6 @@ async fn main() {
         .unwrap();
     println!("listening on http://{}", listener.local_addr().unwrap());
     axum::serve(listener, app).await.unwrap();
-}
-
-fn app() -> Router {
-    Router::new().route("/", get(handler))
-}
-
-async fn handler() -> &'static str {
-    "<h1>Hello, World!</h1>"
 }
 
 #[cfg(test)]

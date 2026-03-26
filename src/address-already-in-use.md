@@ -1,4 +1,4 @@
-# Address already in use
+# Troubleshooting: Address already in use
 
 When you try to run your application you might encounter this error
 
@@ -8,14 +8,15 @@ called `Result::unwrap()` on an `Err` value: Os { code: 98, kind: AddrInUse, mes
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 
-This means that there is another application running on the same port. It might be that you have already tried flask in a different window and you have not shut it down.
+This means that there is another application running on the same port. (port 3000) It might be that you have already tried to run an example in a different window and you have not shut it down.
 
 On Linux or Mac it might be that you used Ctrl-Z to stop the program. Which actually only suspends it, but keeps the port used.
 
-The solution is to either find the other instance and close it using Ctrl-C or to launch this instance on a different port.
+The solution is to either find the other instance and close it or to launch this instance on a different port.
 
-You can do the latter by provideing the --port parameter. e.g.
+You can do the latter by editing the `main.rs` file and replacing the port number.
 
+There are a number of tools that can help you find the other application using this port. See the tools:
 
 ## Linux
 

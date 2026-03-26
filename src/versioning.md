@@ -8,7 +8,12 @@ In this example we see exactly that.
 {% embed include file="src/examples/versioning/Cargo.toml" %}
 
 
+## Code
+
 {% embed include file="src/examples/versioning/src/main.rs" %}
 
-TODO: Separate the tests
+
+## Tests
+
+{% embed include file="src/examples/versioning/src/tests.rs" %}
 
