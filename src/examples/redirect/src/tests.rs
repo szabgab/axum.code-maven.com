@@ -52,6 +52,22 @@ async fn test_internal_redirect() {
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::TEMPORARY_REDIRECT);
-    let location = response.headers().get("location").unwrap();
+    let location = response.headers().get("Location").unwrap();
     assert_eq!(location, "/target-page");
+}
+
+#[tokio::test]
+async fn test_external_redirect() {
+    let response = create_route()
+        .oneshot(
+            Request::builder()
+                .uri("/external-redirect")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::PERMANENT_REDIRECT);
+    let location = response.headers().get("Location").unwrap();
+    assert_eq!(location, "https://rust.code-maven.com/");
 }
