@@ -8,7 +8,7 @@ use tower::ServiceExt;
 
 #[tokio::test]
 async fn test_main() {
-    let response = create_route()
+    let response = create_router()
         .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
         .await
         .unwrap();
@@ -22,7 +22,7 @@ async fn test_main() {
 
 #[tokio::test]
 async fn test_echo_with_text() {
-    let response = create_route()
+    let response = create_router()
         .oneshot(
             Request::builder()
                 .uri("/echo?text=Hello%20World")

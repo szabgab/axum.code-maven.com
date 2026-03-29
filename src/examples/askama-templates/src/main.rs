@@ -52,7 +52,7 @@ async fn echo(Query(params): Query<Params>) -> impl IntoResponse {
     HtmlTemplate(template)
 }
 
-fn create_route() -> Router {
+fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
         .route("/echo", get(echo))
@@ -64,7 +64,7 @@ async fn main() {
         .await
         .unwrap();
     println!("listening on {}", listener.local_addr().unwrap());
-    axum::serve(listener, create_route()).await.unwrap();
+    axum::serve(listener, create_router()).await.unwrap();
 }
 
 #[cfg(test)]
