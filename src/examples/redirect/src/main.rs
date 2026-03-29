@@ -1,8 +1,33 @@
 use axum::{
+    Router,
     response::{Html, Redirect},
     routing::get,
-    Router,
 };
+
+async fn main_page() -> Html<&'static str> {
+    Html(
+        r#"
+        <h1>Redirect</h1>
+        <a href="/internal-redirect">Redirect</a><br>
+        <a href="/target-page">Target page</a>
+    "#,
+    )
+}
+
+async fn internal_redirect() -> Redirect {
+    Redirect::temporary("/target-page")
+}
+
+async fn target_page() -> Html<&'static str> {
+    Html("Arrived")
+}
+
+fn create_route() -> Router {
+    Router::new()
+        .route("/", get(main_page))
+        .route("/internal-redirect", get(internal_redirect))
+        .route("/target-page", get(target_page))
+}
 
 #[tokio::main]
 async fn main() {
@@ -13,78 +38,5 @@ async fn main() {
     axum::serve(listener, create_route()).await.unwrap();
 }
 
-fn create_route() -> Router {
-    Router::new()
-        .route("/", get(main_page))
-        .route("/try", get(try_page))
-        .route("/land", get(land_page))
-}
-
-async fn main_page() -> Html<&'static str> {
-    Html(
-        r#"
-        <h1>Redirect</h1>
-        <a href="/try">Try</a><br>
-        <a href="/land">Land</a>
-    "#,
-    )
-}
-
-async fn try_page() -> Redirect {
-    Redirect::temporary("/land")
-}
-
-async fn land_page() -> Html<&'static str> {
-    Html("Landed")
-}
-
 #[cfg(test)]
-mod tests {
-    use super::*;
-    use axum::{
-        body::Body,
-        http::{Request, StatusCode},
-    };
-    use http_body_util::BodyExt;
-    use tower::ServiceExt;
-
-    #[tokio::test]
-    async fn test_main() {
-        let response = create_route()
-            .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
-            .await
-            .unwrap();
-        assert_eq!(response.status(), StatusCode::OK);
-        let body = response.into_body();
-        let bytes = body.collect().await.unwrap().to_bytes();
-        let html = String::from_utf8(bytes.to_vec()).unwrap();
-
-        assert!(html.contains("<h1>Redirect</h1>"));
-    }
-
-    #[tokio::test]
-    async fn test_landed() {
-        let response = create_route()
-            .oneshot(Request::builder().uri("/land").body(Body::empty()).unwrap())
-            .await
-            .unwrap();
-        assert_eq!(response.status(), StatusCode::OK);
-
-        let body = response.into_body();
-        let bytes = body.collect().await.unwrap().to_bytes();
-        let html = String::from_utf8(bytes.to_vec()).unwrap();
-
-        assert_eq!(html, "Landed");
-    }
-
-    #[tokio::test]
-    async fn test_try() {
-        let response = create_route()
-            .oneshot(Request::builder().uri("/try").body(Body::empty()).unwrap())
-            .await
-            .unwrap();
-        assert_eq!(response.status(), StatusCode::TEMPORARY_REDIRECT);
-        let location = response.headers().get("location").unwrap();
-        assert_eq!(location, "/land");
-    }
-}
+mod tests;

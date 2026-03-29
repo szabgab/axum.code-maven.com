@@ -6,3 +6,5 @@ For this we use the [Redirect struct](https://docs.rs/axum/latest/axum/response/
 {% embed include file="src/examples/redirect/Cargo.toml" %}
 
 {% embed include file="src/examples/redirect/src/main.rs" %}
+
+{% embed include file="src/examples/redirect/src/tests.rs" %}
