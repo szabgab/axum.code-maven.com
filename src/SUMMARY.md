@@ -21,3 +21,4 @@
 - [Askam a Templates](./askama-templates.md)
 - [Custom 404 page](./custom-404-page.md)
 - [Redirect](./redirect.md)
+- [Logging / Tracing](./logging.md)
