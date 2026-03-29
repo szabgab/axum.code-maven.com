@@ -8,7 +8,7 @@ use tower::ServiceExt;
 
 #[tokio::test]
 async fn test_main() {
-    let response = create_route()
+    let response = create_router()
         .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
         .await
         .unwrap();
@@ -22,7 +22,7 @@ async fn test_main() {
 
 #[tokio::test]
 async fn test_target_page() {
-    let response = create_route()
+    let response = create_router()
         .oneshot(
             Request::builder()
                 .uri("/target-page")
@@ -42,7 +42,7 @@ async fn test_target_page() {
 
 #[tokio::test]
 async fn test_internal_redirect() {
-    let response = create_route()
+    let response = create_router()
         .oneshot(
             Request::builder()
                 .uri("/internal-redirect")
@@ -58,7 +58,7 @@ async fn test_internal_redirect() {
 
 #[tokio::test]
 async fn test_external_redirect() {
-    let response = create_route()
+    let response = create_router()
         .oneshot(
             Request::builder()
                 .uri("/external-redirect")
