@@ -1,20 +1,28 @@
 use askama::Template;
 use axum::{
-    Router, extract,
+    Router,
+    extract::Query,
     http::StatusCode,
     response::{Html, IntoResponse, Response},
     routing::get,
 };
+use serde::Deserialize;
+
+#[derive(Debug, Deserialize)]
+#[allow(dead_code)]
+struct Params {
+    text: String,
+}
 
 #[derive(Template)]
 #[template(path = "main.html")]
 struct MainTemplate {}
 
-// #[derive(Template)]
-// #[template(path = "echo.html")]
-// struct EchoTemplate {
-//     text: String,
-// }
+#[derive(Template)]
+#[template(path = "echo.html")]
+struct EchoTemplate {
+    text: String,
+}
 
 struct HtmlTemplate<T>(T);
 
@@ -34,21 +42,20 @@ where
     }
 }
 
-
 async fn main_page() -> impl IntoResponse {
     let template = MainTemplate {};
     HtmlTemplate(template)
 }
 
-// async fn echo(Query(params): Query<Params>) -> impl IntoResponse {
-//     let template = EchoTemplate { text };
-//     HtmlTemplate(template)
-// }
-
+async fn echo(Query(params): Query<Params>) -> impl IntoResponse {
+    let template = EchoTemplate { text: params.text };
+    HtmlTemplate(template)
+}
 
 fn create_route() -> Router {
-    Router::new().route("/", get(main_page))
-    //.route("/greet/{name}", get(greet))
+    Router::new()
+        .route("/", get(main_page))
+        .route("/echo", get(echo))
 }
 
 #[tokio::main]
@@ -60,7 +67,5 @@ async fn main() {
     axum::serve(listener, create_route()).await.unwrap();
 }
 
-
 #[cfg(test)]
 mod tests;
-
