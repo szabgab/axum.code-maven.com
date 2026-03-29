@@ -18,4 +18,5 @@
   - [Path parameters](./path-parameters.md)
 - [Input validation](./validation.md)
   - [Versioning - path parameter with fixed values](./versioning.md)
+- [Askam a Templates](./askama-templates.md)
 - [Custom 404 page](./custom-404-page.md)

@@ -8,5 +8,5 @@ We can add a special handler to be called by axum if no route was match. That fu
 
 {% embed include file="src/examples/custom-404-page/src/main.rs" %}
 
-{% embed include file="src/examples/custom-404-page/src/test.rs" %}
+{% embed include file="src/examples/custom-404-page/src/tests.rs" %}
 
