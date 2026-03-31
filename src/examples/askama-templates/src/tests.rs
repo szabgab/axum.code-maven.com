@@ -52,3 +52,18 @@ async fn test_list() {
 
     assert!(html.contains("<li>Mercury</li>"));
 }
+
+#[tokio::test]
+async fn test_page() {
+    let response = create_router()
+        .oneshot(Request::builder().uri("/page").body(Body::empty()).unwrap())
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::OK);
+    let body = response.into_body();
+    let bytes = body.collect().await.unwrap().to_bytes();
+    let html = String::from_utf8(bytes.to_vec()).unwrap();
+
+    assert!(html.contains("<title>Title</title>"));
+    assert!(html.contains("Page content"));
+}

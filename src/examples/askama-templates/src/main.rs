@@ -19,6 +19,10 @@ struct Params {
 struct MainTemplate {}
 
 #[derive(Template)]
+#[template(path = "page.html")]
+struct PageTemplate {}
+
+#[derive(Template)]
 #[template(path = "echo.html")]
 struct EchoTemplate {
     text: String,
@@ -53,6 +57,11 @@ async fn main_page() -> impl IntoResponse {
     HtmlTemplate(template)
 }
 
+async fn page() -> impl IntoResponse {
+    let template = PageTemplate {};
+    HtmlTemplate(template)
+}
+
 async fn echo(Query(params): Query<Params>) -> impl IntoResponse {
     let template = EchoTemplate { text: params.text };
     HtmlTemplate(template)
@@ -75,6 +84,7 @@ fn create_router() -> Router {
         .route("/", get(main_page))
         .route("/echo", get(echo))
         .route("/list", get(list))
+        .route("/page", get(page))
 }
 
 #[tokio::main]
