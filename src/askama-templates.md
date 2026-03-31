@@ -1,6 +1,6 @@
-# templates
+# Askama templates
 
-* [Askama templates](https://crates.io/crates/askama)
+* [askama](https://crates.io/crates/askama) Type-safe, compiled Jinja-like templates for Rust
 
 {% embed include file="src/examples/askama-templates/Cargo.toml" %}
 
