@@ -24,6 +24,12 @@ struct EchoTemplate {
     text: String,
 }
 
+#[derive(Template)]
+#[template(path = "list.html")]
+struct ListTemplate {
+    names: Vec<String>,
+}
+
 struct HtmlTemplate<T>(T);
 
 impl<T> IntoResponse for HtmlTemplate<T>
@@ -52,10 +58,23 @@ async fn echo(Query(params): Query<Params>) -> impl IntoResponse {
     HtmlTemplate(template)
 }
 
+async fn list() -> impl IntoResponse {
+    let names = vec![
+        String::from("Mercury"),
+        String::from("Venus"),
+        String::from("Earth"),
+        String::from("Mars"),
+    ];
+
+    let template = ListTemplate { names: names };
+    HtmlTemplate(template)
+}
+
 fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
         .route("/echo", get(echo))
+        .route("/list", get(list))
 }
 
 #[tokio::main]
