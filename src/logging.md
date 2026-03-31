@@ -2,7 +2,7 @@
 
 axum uses the [tracing](https://crates.io/crates/tracing) and [tracing-subscriber](https://crates.io/crates/tracing-subscriber) crates for logging so we need to include both.
 
-{% embed include file="src/examples/loggin/Cargo.toml" %}
+{% embed include file="src/examples/logging/Cargo.toml" %}
 
 {% embed include file="src/examples/logging/src/main.rs" %}
 
