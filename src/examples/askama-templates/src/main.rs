@@ -23,6 +23,14 @@ struct MainTemplate {}
 struct PageTemplate {}
 
 #[derive(Template)]
+#[template(path = "content.html")]
+struct ContentTemplate {}
+
+#[derive(Template)]
+#[template(path = "content_with_title.html")]
+struct ContentWithTitleTemplate {}
+
+#[derive(Template)]
 #[template(path = "echo.html")]
 struct EchoTemplate {
     text: String,
@@ -62,6 +70,16 @@ async fn page() -> impl IntoResponse {
     HtmlTemplate(template)
 }
 
+async fn content_default_title() -> impl IntoResponse {
+    let template = ContentTemplate {};
+    HtmlTemplate(template)
+}
+
+async fn content_with_title() -> impl IntoResponse {
+    let template = ContentWithTitleTemplate {};
+    HtmlTemplate(template)
+}
+
 async fn echo(Query(params): Query<Params>) -> impl IntoResponse {
     let template = EchoTemplate { text: params.text };
     HtmlTemplate(template)
@@ -85,8 +103,9 @@ fn create_router() -> Router {
         .route("/echo", get(echo))
         .route("/list", get(list))
         .route("/page", get(page))
+        .route("/content", get(content_default_title))
+        .route("/content-with-title", get(content_with_title))
 }
-
 #[tokio::main]
 async fn main() {
     let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")

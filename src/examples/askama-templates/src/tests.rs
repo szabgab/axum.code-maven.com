@@ -67,3 +67,43 @@ async fn test_page() {
     assert!(html.contains("<title>Title</title>"));
     assert!(html.contains("Page content"));
 }
+
+#[tokio::test]
+async fn test_content() {
+    let response = create_router()
+        .oneshot(
+            Request::builder()
+                .uri("/content")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::OK);
+    let body = response.into_body();
+    let bytes = body.collect().await.unwrap().to_bytes();
+    let html = String::from_utf8(bytes.to_vec()).unwrap();
+
+    assert!(html.contains("<title>Default Title</title>"));
+    assert!(html.contains("Block Content"));
+}
+
+#[tokio::test]
+async fn test_content_with_title() {
+    let response = create_router()
+        .oneshot(
+            Request::builder()
+                .uri("/content-with-title")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::OK);
+    let body = response.into_body();
+    let bytes = body.collect().await.unwrap().to_bytes();
+    let html = String::from_utf8(bytes.to_vec()).unwrap();
+
+    assert!(html.contains("<title>Block title</title>"));
+    assert!(html.contains("Content With Title"));
+}

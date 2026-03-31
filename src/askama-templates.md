@@ -12,3 +12,13 @@
 
 {% embed include file="src/examples/askama-templates/templates/echo.html" %}
 
+{% embed include file="src/examples/askama-templates/templates/list.html" %}
+
+{% embed include file="src/examples/askama-templates/templates/base.html" %}
+{% embed include file="src/examples/askama-templates/templates/content.html" %}
+{% embed include file="src/examples/askama-templates/templates/content_with_title.html" %}
+
+{% embed include file="src/examples/askama-templates/templates/page.html" %}
+{% embed include file="src/examples/askama-templates/templates/incl/footer.html" %}
+{% embed include file="src/examples/askama-templates/templates/incl/header.html" %}
+
