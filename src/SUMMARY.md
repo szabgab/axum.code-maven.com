@@ -23,6 +23,7 @@
 - [Askama Templates](./askama-templates.md)
   - [Askama - Hello World](./askama-hello-world.md)
   - [Askama - variable](./askama-variable.md)
+  - [Askama - conditional](./askama-conditional.md)
   - [Askama - loops](./askama-loops.md)
   - [Askama - include header footer](./askama-header-footer.md)
   - [Askama - layout](./askama-layout.md)

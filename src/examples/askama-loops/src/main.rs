@@ -9,7 +9,8 @@ use axum::{
 #[derive(Template)]
 #[template(path = "list.html")]
 struct ListTemplate {
-    names: Vec<String>,
+    planets: Vec<String>,
+    grades: Vec<u8>,
 }
 
 struct HtmlTemplate<T>(T);
@@ -31,14 +32,16 @@ where
 }
 
 async fn main_page() -> impl IntoResponse {
-    let names = vec![
+    let planets = vec![
         String::from("Mercury"),
         String::from("Venus"),
         String::from("Earth"),
         String::from("Mars"),
     ];
 
-    let template = ListTemplate { names: names };
+    let grades = vec![23, 19, 43, 99, 99];
+
+    let template = ListTemplate { planets: planets, grades: grades };
     HtmlTemplate(template)
 }
 

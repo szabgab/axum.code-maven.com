@@ -7,8 +7,6 @@
 
 {% embed include file="src/examples/askama-loops/src/tests.rs" %}
 
-{% embed include file="src/examples/askama-loops/templates/main.html" %}
-
-{% embed include file="src/examples/askama-loops/templates/echo.html" %}
+{% embed include file="src/examples/askama-loops/templates/list.html" %}
 
 
