@@ -11,3 +11,7 @@ For example if we would like to handle the URL `https://example.org/hello/world`
 special handling of 400 errors
 special handling of all the other errors we see (e.g. when sending a get request to a route defined only as post)
 
+Askama
+    - conditional
+    - vector of structs
+

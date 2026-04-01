@@ -25,6 +25,7 @@
   - [Askama - variable](./askama-variable.md)
   - [Askama - conditional](./askama-conditional.md)
   - [Askama - loops](./askama-loops.md)
+  - [Askama - struct](./askama-struct.md)
   - [Askama - include header footer](./askama-header-footer.md)
   - [Askama - layout](./askama-layout.md)
 - [Custom 404 page](./custom-404-page.md)
