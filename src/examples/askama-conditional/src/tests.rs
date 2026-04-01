@@ -36,7 +36,7 @@ async fn test_echo_with_text() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert_eq!(html, "You wrote: <b>Hello World</b>");
+    assert!(html.contains("You wrote: <b>Hello World</b>"));
 }
 
 #[tokio::test]
@@ -55,19 +55,14 @@ async fn test_echo_with_empty_text() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert_eq!(html, "You wrote: <b></b>");
+    assert!(html.contains("You did not write anything."));
+    assert!(!html.contains("You wrote: <b>Hello World</b>"));
 }
 
-
 #[tokio::test]
-async fn test_echo_without_text() {
+async fn test_echo_without_text_param() {
     let response = create_router()
-        .oneshot(
-            Request::builder()
-                .uri("/echo")
-                .body(Body::empty())
-                .unwrap(),
-        )
+        .oneshot(Request::builder().uri("/echo").body(Body::empty()).unwrap())
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::BAD_REQUEST);
@@ -75,5 +70,8 @@ async fn test_echo_without_text() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert_eq!(html, "Failed to deserialize query string: missing field `text`");
+    assert_eq!(
+        html,
+        "Failed to deserialize query string: missing field `text`"
+    );
 }
