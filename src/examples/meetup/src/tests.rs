@@ -6,13 +6,12 @@ use super::*;
 
 #[tokio::test]
 async fn test_main_page() {
+    check_page("/", "<h1>Meetup</h1>").await;
+}
+
+async fn check_page(uri: &str, expected: &str) {
     let response = create_router()
-        .oneshot(
-            Request::builder()
-                .uri("/")
-                .body(Body::empty())
-                .unwrap(),
-        )
+        .oneshot(Request::builder().uri(uri).body(Body::empty()).unwrap())
         .await
         .unwrap();
 
@@ -21,5 +20,5 @@ async fn test_main_page() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert!(html.contains("<h1>Meetup</h1>"));
+    assert!(html.contains(expected));
 }
