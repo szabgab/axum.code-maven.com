@@ -33,7 +33,7 @@ jobs:
           prove --version
       - name: run tests
         env:
-            EXAPLES: ${{matrix.globber}}
+            EXAMPLES: ${{matrix.globber}}
         run: prove -v check_examples.t
 
 
