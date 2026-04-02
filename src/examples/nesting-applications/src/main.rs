@@ -18,7 +18,7 @@ async fn past_events() -> Html<String> {
     Html(String::from("Past events"))
 }
 
-async fn user_page(Path(id): Path<String>) -> Html<String> {
+async fn user_page(Path(id): Path<u32>) -> Html<String> {
     Html(format!("User id: {}", id))
 }
 
