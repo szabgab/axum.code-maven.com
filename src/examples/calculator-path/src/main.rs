@@ -75,13 +75,20 @@ async fn handle_subtraction(Path((a, b)): Path<(u32, u32)>) -> Html<String> {
 
 
 fn create_router() -> Router {
+    let v1 = create_v1_router();
     Router::new()
         .route("/", get(main_page))
-        .route("/v1/add/{a}/{b}", get(handle_add))
-        .route("/v1/mul/{a}/{b}", get(handle_multiply))
-        .route("/v1/div/{a}/{b}", get(handle_divide))
-        .route("/v1/sub/{a}/{b}", get(handle_subtraction))
+        .nest("/v1", v1)
 }
+
+fn create_v1_router() -> Router {
+    Router::new()
+        .route("/add/{a}/{b}", get(handle_add))
+        .route("/mul/{a}/{b}", get(handle_multiply))
+        .route("/div/{a}/{b}", get(handle_divide))
+        .route("/sub/{a}/{b}", get(handle_subtraction))
+}
+
 
 #[tokio::main]
 async fn main() {
