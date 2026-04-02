@@ -62,6 +62,14 @@ async fn handle_calc(Path((op, a, b)): Path<(String, u32, u32)>) -> Html<String>
             let result = a - b;
             Html(format!("{a} - {b} = {result}"))
         },
+        "mul" => {
+            let result = a * b;
+            Html(format!("{a} * {b} = {result}"))
+        },
+        "div" => {
+            let result = a / b;
+            Html(format!("{a} / {b} = {result}"))
+        },
          _ => panic!("Unhandled operator"),
     }
 }
