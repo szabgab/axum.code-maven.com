@@ -22,7 +22,7 @@ jobs:
         run: |
           rustc -vV
           perl -v
-          proove --version
+          prove --version
       - name: run tests
         run: prove check_examples.t
 
