@@ -19,6 +19,7 @@
   - [Testing](./testing.md)
 - [Input validation](./validation.md)
   - [Versioning - path parameter with fixed values](./versioning.md)
+- [Calculator Path](./calculator-path.md)
 - [Templates](./templates.md)
 - [Askama Templates](./askama-templates.md)
   - [Askama - Hello World](./askama-hello-world.md)
