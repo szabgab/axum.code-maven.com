@@ -11,6 +11,11 @@ jobs:
       - name: Checkout site source
         uses: actions/checkout@v6
 
+      - name: Install tools
+        run: |
+          cpanm install IPC::Run
+
+
       - name: show environment
         run: |
           rustc -vV
