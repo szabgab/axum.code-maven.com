@@ -10,13 +10,13 @@ async fn test_main_page() {
 }
 
 #[tokio::test]
-async fn test_add() {
+async fn test_add_v1() {
     check_equals("/v1/add/2/3", "2 + 3 = 5").await;
     check_equals("/v1/add/7/8", "7 + 8 = 15").await;
 }
 
 #[tokio::test]
-async fn test_subtraction() {
+async fn test_subtraction_v1() {
     check_equals("/v1/sub/5/3", "5 - 3 = 2").await;
     check_equals("/v1/sub/8/7", "8 - 7 = 1").await;
 }
@@ -32,6 +32,18 @@ async fn test_multiply() {
 async fn test_divide() {
     check_equals("/v1/div/6/3", "6 / 3 = 2").await;
     check_equals("/v1/div/120/10", "120 / 10 = 12").await;
+}
+
+#[tokio::test]
+async fn test_add_v2() {
+    check_equals("/v2/add/2/3", "2 + 3 = 5").await;
+    check_equals("/v2/add/7/8", "7 + 8 = 15").await;
+}
+
+#[tokio::test]
+async fn test_subtraction_v2() {
+    check_equals("/v2/sub/5/3", "5 - 3 = 2").await;
+    check_equals("/v2/sub/8/7", "8 - 7 = 1").await;
 }
 
 

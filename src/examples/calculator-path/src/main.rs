@@ -51,15 +51,26 @@ async fn main_page() -> Html<&'static str> {
 //async fn handle_api(version: Version) -> Html<String> {
 //    Html(format!("received request with version {version:?}"))
 //}
-//
-//async fn handle_about(Path(group): Path<String>) -> Html<String> {
-//    Html(format!("<h1>About {group}</h1>"))
-//}
-//
+
+async fn handle_calc(Path((op, a, b)): Path<(String, u32, u32)>) -> Html<String> {
+    match op.as_str() {
+        "add" => {
+            let result = a + b;
+            Html(format!("{a} + {b} = {result}"))
+        },
+        "sub" => {
+            let result = a - b;
+            Html(format!("{a} - {b} = {result}"))
+        },
+         _ => panic!("Unhandled operator"),
+    }
+}
+
 fn create_router() -> Router {
     let v1 = v1calc::create_router();
     Router::new()
         .route("/", get(main_page))
+        .route("/v2/{op}/{a}/{b}", get(handle_calc))
         .nest("/v1", v1)
 }
 
@@ -76,3 +87,4 @@ async fn main() {
 
 #[cfg(test)]
 mod tests;
+
