@@ -13,5 +13,3 @@ pub fn create_router() -> Router {
         .route("/future", get(future_events))
         .route("/past", get(past_events))
 }
-
-

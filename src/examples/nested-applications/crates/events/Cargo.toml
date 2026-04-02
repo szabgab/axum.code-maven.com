@@ -1,14 +1,10 @@
-workspace = { members = ["crates/events"] }
-
 [package]
-name = "nested-applications"
+name = "events"
 version = "0.1.0"
 edition = "2024"
-publish = false
 
 [dependencies]
 axum = "0.8.8"
-events = { version = "0.1.0", path = "crates/events" }
 tokio = { version = "1.50.0", features = ["full"] }
 
 [dev-dependencies]

@@ -89,6 +89,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "events"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "http-body-util",
+ "tokio",
+ "tower",
+]
+
+[[package]]
 name = "form_urlencoded"
 version = "1.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -272,6 +282,7 @@ name = "nested-applications"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "events",
  "http-body-util",
  "tokio",
  "tower",

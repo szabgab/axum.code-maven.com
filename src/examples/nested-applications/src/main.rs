@@ -1,6 +1,5 @@
 use axum::{Router, response::Html, routing::get};
 
-mod events;
 mod users;
 
 async fn main_page() -> Html<&'static str> {
