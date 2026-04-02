@@ -19,4 +19,3 @@ async fn test_main() {
 
     assert!(html.contains("<h1>Hello Askama</h1>"));
 }
-

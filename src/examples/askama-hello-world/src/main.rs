@@ -34,8 +34,7 @@ async fn main_page() -> impl IntoResponse {
 }
 
 fn create_router() -> Router {
-    Router::new()
-        .route("/", get(main_page))
+    Router::new().route("/", get(main_page))
 }
 #[tokio::main]
 async fn main() {
