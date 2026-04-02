@@ -5,8 +5,5 @@ async fn user_page(Path(id): Path<u32>) -> Html<String> {
 }
 
 pub fn create_router() -> Router {
-    Router::new()
-        .route("/{id}", get(user_page))
+    Router::new().route("/{id}", get(user_page))
 }
-
-

@@ -1,9 +1,4 @@
-use axum::{
-    Router,
-    extract::Path,
-    response::Html,
-    routing::get,
-};
+use axum::{Router, extract::Path, response::Html, routing::get};
 
 async fn handle_add(Path((a, b)): Path<(u32, u32)>) -> Html<String> {
     let result = a + b;
@@ -31,5 +26,3 @@ pub fn create_router() -> Router {
         .route("/div/{a}/{b}", get(handle_divide))
         .route("/sub/{a}/{b}", get(handle_subtraction))
 }
-
-

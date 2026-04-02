@@ -21,7 +21,6 @@ async fn test_subtraction_v1() {
     check_equals("/v1/sub/8/7", "8 - 7 = 1").await;
 }
 
-
 #[tokio::test]
 async fn test_multiply_v1() {
     check_equals("/v1/mul/2/3", "2 * 3 = 6").await;
@@ -58,7 +57,6 @@ async fn test_divide_v2() {
     check_equals("/v2/div/120/10", "120 / 10 = 12").await;
 }
 
-
 async fn check_contains(uri: &str, expected: &str) {
     let html = get_page(uri).await;
     assert!(html.contains(expected));
@@ -78,5 +76,4 @@ async fn get_page(uri: &str) -> String {
     let body = response.into_body();
     let bytes = body.collect().await.unwrap().to_bytes();
     String::from_utf8(bytes.to_vec()).unwrap()
-
 }

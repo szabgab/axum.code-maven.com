@@ -1,8 +1,4 @@
-use axum::{
-    Router,
-    response::Html,
-    routing::get,
-};
+use axum::{Router, response::Html, routing::get};
 
 mod v1calc;
 mod v2calc;
@@ -36,4 +32,3 @@ async fn main() {
 
 #[cfg(test)]
 mod tests;
-
