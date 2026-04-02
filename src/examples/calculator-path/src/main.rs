@@ -1,43 +1,11 @@
 use axum::{
-    RequestPartsExt, Router,
-    extract::{FromRequestParts, Path},
-    http::{StatusCode, request::Parts},
-    response::{Html, IntoResponse, Response},
+    Router,
+    response::Html,
     routing::get,
 };
-use std::collections::HashMap;
 
 mod v1calc;
-
-// #[derive(Debug)]
-// enum Area {
-//     Events,
-//     Members,
-// }
-// 
-// impl<S> FromRequestParts<S> for Area
-// where
-//     S: Send + Sync,
-// {
-//     type Rejection = Response;
-// 
-//     async fn from_request_parts(parts: &mut Parts, _state: &S) -> Result<Self, Self::Rejection> {
-//         let params: Path<HashMap<String, String>> =
-//             parts.extract().await.map_err(IntoResponse::into_response)?;
-// 
-//         let area = params
-//             .get("area")
-//             .ok_or_else(|| (StatusCode::NOT_FOUND, "area param missing").into_response())?;
-// 
-//         match area.as_str() {
-//             "events" => Ok(Area::Events),
-//             "members" => Ok(Area::Members),
-//             _ => Err((StatusCode::NOT_FOUND, "unknown area").into_response()),
-//         }
-//     }
-// }
-
-
+mod v2calc;
 
 async fn main_page() -> Html<&'static str> {
     Html(
@@ -48,38 +16,11 @@ async fn main_page() -> Html<&'static str> {
     )
 }
 
-//async fn handle_api(version: Version) -> Html<String> {
-//    Html(format!("received request with version {version:?}"))
-//}
-
-async fn handle_calc(Path((op, a, b)): Path<(String, u32, u32)>) -> Html<String> {
-    match op.as_str() {
-        "add" => {
-            let result = a + b;
-            Html(format!("{a} + {b} = {result}"))
-        },
-        "sub" => {
-            let result = a - b;
-            Html(format!("{a} - {b} = {result}"))
-        },
-        "mul" => {
-            let result = a * b;
-            Html(format!("{a} * {b} = {result}"))
-        },
-        "div" => {
-            let result = a / b;
-            Html(format!("{a} / {b} = {result}"))
-        },
-         _ => panic!("Unhandled operator"),
-    }
-}
-
 fn create_router() -> Router {
-    let v1 = v1calc::create_router();
     Router::new()
         .route("/", get(main_page))
-        .route("/v2/{op}/{a}/{b}", get(handle_calc))
-        .nest("/v1", v1)
+        .nest("/v1", v1calc::create_router())
+        .nest("/v2", v2calc::create_router())
 }
 
 #[tokio::main]

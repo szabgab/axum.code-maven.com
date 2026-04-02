@@ -1,8 +1,7 @@
 use axum::{
-    RequestPartsExt, Router,
-    extract::{FromRequestParts, Path},
-    http::{StatusCode, request::Parts},
-    response::{Html, IntoResponse, Response},
+    Router,
+    extract::Path,
+    response::Html,
     routing::get,
 };
 
