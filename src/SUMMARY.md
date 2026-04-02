@@ -19,7 +19,6 @@
   - [Testing](./testing.md)
 - [Input validation](./validation.md)
   - [Versioning - path parameter with fixed values](./versioning.md)
-- [Calculator Path](./calculator-path.md)
 - [Templates](./templates.md)
 - [Askama Templates](./askama-templates.md)
   - [Askama - Hello World](./askama-hello-world.md)
@@ -33,3 +32,5 @@
 - [Custom 404 page](./custom-404-page.md)
 - [Redirect](./redirect.md)
 - [Logging / Tracing](./logging.md)
+- [Calculator Path](./calculator-path.md)
+- [Modelling Meetup](./meetup.md)

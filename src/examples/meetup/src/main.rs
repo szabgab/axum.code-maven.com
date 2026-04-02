@@ -7,7 +7,8 @@ use axum::{
 };
 use std::collections::HashMap;
 
-// About https://www.meetup.com/code-mavens/
+// Meetup: https://www.meetup.com/  redirects to Meetup Home: https://www.meetup.com/home/
+// About: https://www.meetup.com/code-mavens/
 // Events: https://www.meetup.com/code-mavens/events/
 // Members: https://www.meetup.com/code-mavens/members/
 // Photos: https://www.meetup.com/code-mavens/photos/
@@ -21,6 +22,36 @@ use std::collections::HashMap;
 // this does not show any event: https://www.meetup.com/code-mavens/events/?type=qqrq
 // Event: https://www.meetup.com/code-mavens/events/313944233/?eventOrigin=group_events_list
 
+// #[derive(Debug)]
+// enum Area {
+//     Events,
+//     Members,
+// }
+// 
+// impl<S> FromRequestParts<S> for Area
+// where
+//     S: Send + Sync,
+// {
+//     type Rejection = Response;
+// 
+//     async fn from_request_parts(parts: &mut Parts, _state: &S) -> Result<Self, Self::Rejection> {
+//         let params: Path<HashMap<String, String>> =
+//             parts.extract().await.map_err(IntoResponse::into_response)?;
+// 
+//         let area = params
+//             .get("area")
+//             .ok_or_else(|| (StatusCode::NOT_FOUND, "area param missing").into_response())?;
+// 
+//         match area.as_str() {
+//             "events" => Ok(Area::Events),
+//             "members" => Ok(Area::Members),
+//             _ => Err((StatusCode::NOT_FOUND, "unknown area").into_response()),
+//         }
+//     }
+// }
+
+
+
 async fn main_page() -> Html<&'static str> {
     Html(
         r#"
@@ -33,48 +64,24 @@ async fn main_page() -> Html<&'static str> {
     )
 }
 
-//#[derive(Debug)]
-//enum Version {
-//    V1,
-//    V2,
-//    V3,
-//}
-//
-//impl<S> FromRequestParts<S> for Version
-//where
-//    S: Send + Sync,
-//{
-//    type Rejection = Response;
-//
-//    async fn from_request_parts(parts: &mut Parts, _state: &S) -> Result<Self, Self::Rejection> {
-//        let params: Path<HashMap<String, String>> =
-//            parts.extract().await.map_err(IntoResponse::into_response)?;
-//
-//        let version = params
-//            .get("version")
-//            .ok_or_else(|| (StatusCode::NOT_FOUND, "version param missing").into_response())?;
-//
-//        match version.as_str() {
-//            "v1" => Ok(Version::V1),
-//            "v2" => Ok(Version::V2),
-//            "v3" => Ok(Version::V3),
-//            _ => Err((StatusCode::NOT_FOUND, "unknown version").into_response()),
-//        }
-//    }
-//}
-
 //async fn handle_api(version: Version) -> Html<String> {
 //    Html(format!("received request with version {version:?}"))
 //}
 //
 async fn handle_about(Path(group): Path<String>) -> Html<String> {
-    Html(format!("About group '{group}'"))
+    Html(format!("<h1>About {group}</h1>"))
 }
+
+async fn handle_area(Path((group, area)): Path<(String, String)>) -> Html<String> {
+    Html(format!("<h1>{area} of {group}</h1>"))
+}
+
 
 fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
         .route("/{group}/", get(handle_about))
+        .route("/{group}/{area}", get(handle_area))
 }
 
 #[tokio::main]
