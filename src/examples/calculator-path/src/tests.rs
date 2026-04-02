@@ -11,27 +11,27 @@ async fn test_main_page() {
 
 #[tokio::test]
 async fn test_add() {
-    check_equals("/add/2/3", "2 + 3 = 5").await;
-    check_equals("/add/7/8", "7 + 8 = 15").await;
+    check_equals("/v1/add/2/3", "2 + 3 = 5").await;
+    check_equals("/v1/add/7/8", "7 + 8 = 15").await;
 }
 
 #[tokio::test]
 async fn test_subtraction() {
-    check_equals("/sub/5/3", "5 - 3 = 2").await;
-    check_equals("/sub/8/7", "8 - 7 = 1").await;
+    check_equals("/v1/sub/5/3", "5 - 3 = 2").await;
+    check_equals("/v1/sub/8/7", "8 - 7 = 1").await;
 }
 
 
 #[tokio::test]
 async fn test_multiply() {
-    check_equals("/mul/2/3", "2 * 3 = 6").await;
-    check_equals("/mul/7/8", "7 * 8 = 56").await;
+    check_equals("/v1/mul/2/3", "2 * 3 = 6").await;
+    check_equals("/v1/mul/7/8", "7 * 8 = 56").await;
 }
 
 #[tokio::test]
 async fn test_divide() {
-    check_equals("/div/6/3", "6 / 3 = 2").await;
-    check_equals("/div/120/10", "120 / 10 = 12").await;
+    check_equals("/v1/div/6/3", "6 / 3 = 2").await;
+    check_equals("/v1/div/120/10", "120 / 10 = 12").await;
 }
 
 

@@ -41,7 +41,7 @@ async fn main_page() -> Html<&'static str> {
     Html(
         r#"
         <h1>Calculator</h1>
-        <a href="/add/2/3">add 2 + 3</a><br>
+        <a href="/v1/add/2/3">add 2 + 3</a><br>
     "#,
     )
 }
@@ -77,10 +77,10 @@ async fn handle_subtraction(Path((a, b)): Path<(u32, u32)>) -> Html<String> {
 fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
-        .route("/add/{a}/{b}", get(handle_add))
-        .route("/mul/{a}/{b}", get(handle_multiply))
-        .route("/div/{a}/{b}", get(handle_divide))
-        .route("/sub/{a}/{b}", get(handle_subtraction))
+        .route("/v1/add/{a}/{b}", get(handle_add))
+        .route("/v1/mul/{a}/{b}", get(handle_multiply))
+        .route("/v1/div/{a}/{b}", get(handle_divide))
+        .route("/v1/sub/{a}/{b}", get(handle_subtraction))
 }
 
 #[tokio::main]
