@@ -7,6 +7,15 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        globber:
+          - "a"
+          - "[b-e]"
+          - "[f-j]"
+          - "[k-n]"
+          - "[p-z]"
     steps:
       - name: Checkout site source
         uses: actions/checkout@v6
@@ -16,7 +25,6 @@ jobs:
         with:
           install: |
             IPC::Run
-            Test::Parallel
 
       - name: show environment
         run: |
@@ -24,7 +32,9 @@ jobs:
           perl -v
           prove --version
       - name: run tests
-        run: prove check_examples.t
+        env:
+            EXAPLES: ${{matrix.globber}}
+        run: prove -v check_examples.t
 
 
 

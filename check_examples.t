@@ -11,8 +11,9 @@ use Test::More;
 my $root = cwd();
 say "Root $root";
 
-my @examples = glob "src/examples/*";
-#say Dumper \@examples;
+my $globber = $ENV{EXAMPLES} // '*';
+my @examples = glob "src/examples/$globber";
+die Dumper \@examples;
 
 for my $dir (@examples) {
     say $dir;
