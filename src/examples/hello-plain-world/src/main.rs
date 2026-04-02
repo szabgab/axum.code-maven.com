@@ -1,4 +1,4 @@
-use axum::{routing::get, Router};
+use axum::{Router, routing::get};
 
 async fn handle_main_page() -> &'static str {
     "<h1>Hello, World!</h1>"

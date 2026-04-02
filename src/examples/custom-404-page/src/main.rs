@@ -1,8 +1,8 @@
 use axum::{
+    Router,
     http::StatusCode,
     response::{Html, IntoResponse},
     routing::get,
-    Router,
 };
 
 async fn main_page() -> Html<&'static str> {
@@ -20,7 +20,6 @@ fn create_router() -> Router {
     // add a fallback service for handling routes to unknown paths
 }
 
-
 #[tokio::main]
 async fn main() {
     let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
@@ -32,5 +31,3 @@ async fn main() {
 
 #[cfg(test)]
 mod tests;
-
-

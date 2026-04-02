@@ -35,23 +35,18 @@ where
     }
 }
 
-
 async fn main_page() -> impl IntoResponse {
     let thing = Thing {
         name: String::from("Something"),
         small_number: 42,
     };
 
-    let template = MainTemplate {
-        thing: thing
-    };
+    let template = MainTemplate { thing: thing };
     HtmlTemplate(template)
 }
 
-
 fn create_router() -> Router {
-    Router::new()
-        .route("/", get(main_page))
+    Router::new().route("/", get(main_page))
 }
 #[tokio::main]
 async fn main() {

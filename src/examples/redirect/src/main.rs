@@ -23,7 +23,6 @@ async fn external_redirect() -> Redirect {
     Redirect::permanent("https://rust.code-maven.com/")
 }
 
-
 async fn target_page() -> Html<&'static str> {
     Html("Arrived")
 }

@@ -21,4 +21,3 @@ async fn test_main() {
     assert!(html.contains(r#"name: <b>Something</b>"#));
     assert!(html.contains(r#"small_number: <b>42</b>"#));
 }
-

@@ -1,4 +1,4 @@
-use axum::{extract::Query, response::Html, routing::get, Router};
+use axum::{Router, extract::Query, response::Html, routing::get};
 use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
@@ -40,5 +40,3 @@ async fn main() {
 
 #[cfg(test)]
 mod tests;
-
-

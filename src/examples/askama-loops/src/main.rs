@@ -41,13 +41,12 @@ async fn main_page() -> impl IntoResponse {
 
     let grades = vec![23, 19, 43, 99, 99];
 
-    let template = ListTemplate { planets: planets, grades: grades };
+    let template = ListTemplate { planets, grades };
     HtmlTemplate(template)
 }
 
 fn create_router() -> Router {
-    Router::new()
-        .route("/", get(main_page))
+    Router::new().route("/", get(main_page))
 }
 #[tokio::main]
 async fn main() {

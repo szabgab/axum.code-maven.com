@@ -1,7 +1,7 @@
 use axum::{
+    Form, Router,
     response::Html,
     routing::{get, post},
-    Form, Router,
 };
 use serde::Deserialize;
 
