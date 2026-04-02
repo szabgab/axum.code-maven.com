@@ -11,7 +11,8 @@ jobs:
       fail-fast: false
       matrix:
         globber:
-          - "a"
+          - "askama-[a-i]"
+          - "askama-[j-z]"
           - "[b-e]"
           - "[f-j]"
           - "[k-n]"
