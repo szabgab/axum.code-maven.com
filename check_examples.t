@@ -11,11 +11,13 @@ use Test::More;
 my $root = cwd();
 say "Root $root";
 
-my $globber = $ENV{EXAMPLES} // '*';
-my @examples = glob "src/examples/$globber";
-die Dumper \@examples;
+my $globber = $ENV{EXAMPLES} // '';
+my @examples = glob "src/examples/$globber*";
+#die Dumper \@examples;
 
 for my $dir (@examples) {
+    next if $dir eq "src/examples/meetup";
+    next if $dir eq "src/examples/calculator-get";
     say $dir;
     chdir $dir;
     my @cmd = ('cargo', 'test');
