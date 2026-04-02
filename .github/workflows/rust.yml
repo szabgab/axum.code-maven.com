@@ -1,0 +1,24 @@
+name: Check Examples
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site source
+        uses: actions/checkout@v6
+
+      - name: show environment
+        run: |
+          rustc -vV
+          perl -v
+          proove --version
+      - name: run tests
+        run: prove check_examples.t
+
+
+
+
