@@ -7,6 +7,8 @@ use axum::{
 };
 use std::collections::HashMap;
 
+mod v1calc;
+
 // #[derive(Debug)]
 // enum Area {
 //     Events,
@@ -54,41 +56,12 @@ async fn main_page() -> Html<&'static str> {
 //    Html(format!("<h1>About {group}</h1>"))
 //}
 //
-async fn handle_add(Path((a, b)): Path<(u32, u32)>) -> Html<String> {
-    let result = a + b;
-    Html(format!("{a} + {b} = {result}"))
-}
-async fn handle_multiply(Path((a, b)): Path<(u32, u32)>) -> Html<String> {
-    let result = a * b;
-    Html(format!("{a} * {b} = {result}"))
-}
-
-async fn handle_divide(Path((a, b)): Path<(u32, u32)>) -> Html<String> {
-    let result = a / b;
-    Html(format!("{a} / {b} = {result}"))
-}
-
-async fn handle_subtraction(Path((a, b)): Path<(u32, u32)>) -> Html<String> {
-    let result = a - b;
-    Html(format!("{a} - {b} = {result}"))
-}
-
-
 fn create_router() -> Router {
-    let v1 = create_v1_router();
+    let v1 = v1calc::create_router();
     Router::new()
         .route("/", get(main_page))
         .nest("/v1", v1)
 }
-
-fn create_v1_router() -> Router {
-    Router::new()
-        .route("/add/{a}/{b}", get(handle_add))
-        .route("/mul/{a}/{b}", get(handle_multiply))
-        .route("/div/{a}/{b}", get(handle_divide))
-        .route("/sub/{a}/{b}", get(handle_subtraction))
-}
-
 
 #[tokio::main]
 async fn main() {

@@ -6,6 +6,8 @@
 
 {% embed include file="src/examples/calculator-path/src/main.rs" %}
 
+{% embed include file="src/examples/calculator-path/src/v1calc.rs" %}
+
 
 ## Tests
 
