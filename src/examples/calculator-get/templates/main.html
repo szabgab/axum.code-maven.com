@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="get" action="/">
+    <input name="a" />
+    <select name="op">
+        <option></option>
+        <option value="add">+</option>
+        <option value="deduct">-</option>
+    </select>
+    <input name="b" />
+    <input type="submit" value="=" />
+</form>
+
+{% endblock %}

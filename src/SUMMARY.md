@@ -19,6 +19,7 @@
   - [Testing](./testing.md)
 - [Input validation](./validation.md)
   - [Versioning - path parameter with fixed values](./versioning.md)
+  - [TODO - GET parameter with fixed values](./versioning-get.md)
 - [Templates](./templates.md)
 - [Askama Templates](./askama-templates.md)
   - [Askama - Hello World](./askama-hello-world.md)
@@ -35,4 +36,5 @@
 - [Nesteting applications](./nesting-applications.md)
 - [Nesteted applications](./nested-applications.md)
 - [Calculator Path](./calculator-path.md)
+- [TODO - Calculator GET](./calculator-get.md)
 - [Modelling Meetup](./meetup.md)
