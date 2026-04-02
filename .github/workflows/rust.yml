@@ -11,10 +11,12 @@ jobs:
       - name: Checkout site source
         uses: actions/checkout@v6
 
-      - name: Install tools
-        run: |
-          cpanm install IPC::Run
-
+      - name: install cpanm and multiple modules
+        uses: perl-actions/install-with-cpanm@v1
+        with:
+          install: |
+            IPC::Run
+            Test::Parallel
 
       - name: show environment
         run: |
