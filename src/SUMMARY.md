@@ -32,5 +32,7 @@
 - [Custom 404 page](./custom-404-page.md)
 - [Redirect](./redirect.md)
 - [Logging / Tracing](./logging.md)
+- [Nesteting applications](./nesting-applications.md)
+- [Nesteted applications](./nested-applications.md)
 - [Calculator Path](./calculator-path.md)
 - [Modelling Meetup](./meetup.md)
