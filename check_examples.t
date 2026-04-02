@@ -13,7 +13,7 @@ say "Root $root";
 
 my $globber = $ENV{EXAMPLES} // '';
 my @examples = glob "src/examples/$globber*";
-#die Dumper \@examples;
+say Dumper \@examples;
 
 for my $dir (@examples) {
     next if $dir eq "src/examples/meetup";
