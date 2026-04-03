@@ -38,3 +38,6 @@
 - [Calculator Path](./calculator-path.md)
 - [TODO - Calculator GET](./calculator-get.md)
 - [Modelling Meetup](./meetup.md)
+- [API](./api.md)
+  - [API Hello World](./api-hello-world.md)
+
