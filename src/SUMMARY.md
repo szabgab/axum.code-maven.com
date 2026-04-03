@@ -40,4 +40,5 @@
 - [Modelling Meetup](./meetup.md)
 - [API](./api.md)
   - [API Hello World](./api-hello-world.md)
+  - [API Calculator](./api-calculator.md)
 

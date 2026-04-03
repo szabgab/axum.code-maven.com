@@ -6,8 +6,21 @@ use super::*;
 
 #[tokio::test]
 async fn test_main_page() {
+    check("/2/3", Calc { a: 2, b: 3, sum: 5 }).await;
+    check(
+        "/7/3",
+        Calc {
+            a: 7,
+            b: 3,
+            sum: 10,
+        },
+    )
+    .await;
+}
+
+async fn check(uri: &str, expected: Calc) {
     let response = create_router()
-        .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
+        .oneshot(Request::builder().uri(uri).body(Body::empty()).unwrap())
         .await
         .unwrap();
 
@@ -18,12 +31,7 @@ async fn test_main_page() {
 
     let body = response.into_body();
     let bytes = body.collect().await.unwrap().to_bytes();
-    let message: Message = serde_json::from_slice(&bytes).unwrap();
+    let result: Calc = serde_json::from_slice(&bytes).unwrap();
 
-    assert_eq!(
-        message,
-        Message {
-            text: String::from("Hello World!")
-        }
-    );
+    assert_eq!(result, expected);
 }
