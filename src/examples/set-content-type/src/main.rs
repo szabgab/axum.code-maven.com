@@ -1,6 +1,9 @@
 use axum::{
     Json, Router,
-    http::{StatusCode, header::{self, HeaderMap}},
+    http::{
+        StatusCode,
+        header::{self, HeaderMap},
+    },
     response::{Html, IntoResponse},
     routing::get,
 };
@@ -60,7 +63,7 @@ async fn send_javascript() -> impl IntoResponse {
     (
         StatusCode::OK, // This status code is optional and OK is the default
         [(header::CONTENT_TYPE, "application/javascript")],
-        js
+        js,
     )
 }
 

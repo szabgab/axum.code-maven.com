@@ -26,7 +26,12 @@ async fn test_main_page() {
 #[tokio::test]
 async fn test_css() {
     let response = create_router()
-        .oneshot(Request::builder().uri("/static/css/style.css").body(Body::empty()).unwrap())
+        .oneshot(
+            Request::builder()
+                .uri("/static/css/style.css")
+                .body(Body::empty())
+                .unwrap(),
+        )
         .await
         .unwrap();
 
@@ -46,7 +51,4 @@ h1 {
 "#;
 
     assert_eq!(content, expected);
-
 }
-
-

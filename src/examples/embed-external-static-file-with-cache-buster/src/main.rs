@@ -1,15 +1,19 @@
+use axum::{
+    Router,
+    http::header::{self, HeaderMap},
+    response::{Html, IntoResponse},
+    routing::get,
+};
 use xxhash_rust::const_xxh3;
-use axum::{Router, response::{Html, IntoResponse}, routing::get,
-http::header::{self, HeaderMap}};
 
 const STYLE_CSS: &[u8] = include_bytes!("static/style.css");
 const STYLE_CSS_HASH: &str = const_hex::Buffer::<16, false>::new()
     .const_format(&const_xxh3::xxh3_128(STYLE_CSS).to_be_bytes())
     .as_str();
 
-
 async fn handle_main_page() -> Html<String> {
-    Html(format!(r#"
+    Html(format!(
+        r#"
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,7 +25,8 @@ async fn handle_main_page() -> Html<String> {
     <h1>Hello, World!</h1>
   </body>
 </html>
-"#))
+"#
+    ))
 }
 
 async fn send_style_css() -> impl IntoResponse {
@@ -32,7 +37,8 @@ async fn send_style_css() -> impl IntoResponse {
 
 fn create_router() -> Router {
     let css_path = format!("/static/css/{}-style.css", STYLE_CSS_HASH);
-    Router::new().route("/", get(handle_main_page))
+    Router::new()
+        .route("/", get(handle_main_page))
         .route(&css_path, get(send_style_css))
 }
 

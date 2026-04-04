@@ -1,8 +1,13 @@
-use axum::{Router, response::{Html, IntoResponse}, routing::get,
-http::header::{self, HeaderMap}};
+use axum::{
+    Router,
+    http::header::{self, HeaderMap},
+    response::{Html, IntoResponse},
+    routing::get,
+};
 
 async fn handle_main_page() -> Html<&'static str> {
-    Html(r#"
+    Html(
+        r#"
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,7 +19,8 @@ async fn handle_main_page() -> Html<&'static str> {
     <h1>Hello, World!</h1>
   </body>
 </html>
-"#)
+"#,
+    )
 }
 
 async fn send_style_css() -> impl IntoResponse {
@@ -25,7 +31,8 @@ async fn send_style_css() -> impl IntoResponse {
 }
 
 fn create_router() -> Router {
-    Router::new().route("/", get(handle_main_page))
+    Router::new()
+        .route("/", get(handle_main_page))
         .route("/static/css/style.css", get(send_style_css))
 }
 
