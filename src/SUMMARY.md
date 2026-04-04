@@ -39,6 +39,8 @@
 - [Calculator Path](./calculator-path.md)
 - [TODO - Calculator GET](./calculator-get.md)
 - [Modelling Meetup](./meetup.md)
+- [Embed Static File](./embed-static-file.md)
+- [Embed external Static File](./embed-external-static-file.md)
 - [API](./api.md)
   - [API Hello World](./api-hello-world.md)
   - [API Calculator](./api-calculator.md)
