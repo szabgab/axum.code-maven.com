@@ -1,5 +1,10 @@
 
 
+
+## Ecosystem
+
+We copy the ECOSYSTEM.md file from the source of axum. Use the `ecosystem.pl` file for this.
+
 ```
 curl https://raw.githubusercontent.com/tokio-rs/axum/refs/heads/main/ECOSYSTEM.md -o src/axum_ecosystem.md 
 ```

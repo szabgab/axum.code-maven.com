@@ -26,6 +26,7 @@ jobs:
         with:
           install: |
             IPC::Run
+            LWP::UserAgent
 
       - name: show environment
         run: |
