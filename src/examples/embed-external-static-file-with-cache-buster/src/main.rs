@@ -4,6 +4,7 @@ use axum::{
     response::{Html, IntoResponse},
     routing::get,
 };
+use const_format::formatcp;
 use xxhash_rust::const_xxh3;
 
 const STYLE_CSS: &[u8] = include_bytes!("static/style.css");
@@ -36,10 +37,10 @@ async fn send_style_css() -> impl IntoResponse {
 }
 
 fn create_router() -> Router {
-    let css_path = format!("/static/css/{}-style.css", STYLE_CSS_HASH);
-    Router::new()
-        .route("/", get(handle_main_page))
-        .route(&css_path, get(send_style_css))
+    Router::new().route("/", get(handle_main_page)).route(
+        formatcp!("/static/css/{}-style.css", STYLE_CSS_HASH),
+        get(send_style_css),
+    )
 }
 
 #[tokio::main]
