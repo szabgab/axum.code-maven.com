@@ -18,6 +18,7 @@
   - [Path parameters](./path-parameters.md)
   - [Testing](./testing.md)
 - [Input validation](./validation.md)
+  - [GET input validation minimum length](./get-input-validation-minimum-length.md)
   - [Versioning - path parameter with fixed values](./versioning.md)
   - [TODO - GET parameter with fixed values](./versioning-get.md)
 - [Set Content-type](./set-content-type.md)
