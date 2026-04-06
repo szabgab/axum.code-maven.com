@@ -17,7 +17,6 @@ say Dumper \@examples;
 
 for my $dir (@examples) {
     next if $dir eq "src/examples/meetup";
-    next if $dir eq "src/examples/calculator-get";
     say $dir;
     chdir $dir;
     {
