@@ -47,4 +47,4 @@
 - [API](./api.md)
   - [API Hello World](./api-hello-world.md)
   - [API Calculator](./api-calculator.md)
-
+- [Serving Static files](./serving-static-files.md)
