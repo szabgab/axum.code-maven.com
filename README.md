@@ -13,7 +13,6 @@ special handling of 400 errors (e.g. when the parameter is missing, value is inc
 special handling of all the other errors we see (e.g. when sending a get request to a route defined only as post)
 
 Askama
-    - List of items with comma between them
-    - Trusted content (html)
     - Other filters
-    - Create a filter manually
+    - Create a filter manually, commafy?
+    - 3rd party filters?

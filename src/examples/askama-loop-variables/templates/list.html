@@ -1,0 +1,5 @@
+<h1>List</h1>
+
+<h2>Planets</h2>
+{% for planet in planets %}{{planet}}{% if ! loop.last %}, {% endif %}{% endfor %}
+

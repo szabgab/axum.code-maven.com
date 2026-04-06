@@ -1,0 +1,16 @@
+[package]
+name = "askama-loop-variables"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+askama = "0.15.6"
+axum = "0.8.8"
+serde = { version = "1.0.228", features = ["derive"] }
+tokio = { version = "1.50.0", features = ["full"] }
+
+[dev-dependencies]
+headers = "0.4.1"
+http-body-util = "0.1.3"
+tower = { version = "0.5.3", features = ["util"] }
