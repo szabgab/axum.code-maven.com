@@ -1,0 +1,15 @@
+<h1>Planets</h1>
+
+<table>
+{% for planet in planets %}
+   <tr><td>{{planet.name}}</td><td>{{planet.distance}}</td><td>{{planet.mass}}</td></tr>
+{% endfor %}
+</table>
+
+<style>
+td {
+    padding: 10px;
+}
+</style>
+
+

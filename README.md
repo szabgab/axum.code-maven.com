@@ -13,5 +13,7 @@ special handling of 400 errors (e.g. when the parameter is missing, value is inc
 special handling of all the other errors we see (e.g. when sending a get request to a route defined only as post)
 
 Askama
-    - vector of structs
-
+    - List of items with comma between them
+    - Trusted content (html)
+    - Other filters
+    - Create a filter manually
