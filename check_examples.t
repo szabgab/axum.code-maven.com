@@ -16,7 +16,6 @@ my @examples = glob "src/examples/$globber*";
 say Dumper \@examples;
 
 for my $dir (@examples) {
-    next if $dir eq "src/examples/meetup";
     say $dir;
     chdir $dir;
     {
