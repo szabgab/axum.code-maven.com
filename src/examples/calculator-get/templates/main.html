@@ -1,16 +1,16 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <form method="get" action="/">
-    <input name="a" />
+    <input name="a" value="{{a}}" />
     <select name="op">
         <option></option>
         <option value="add">+</option>
         <option value="deduct">-</option>
     </select>
-    <input name="b" />
+    <input name="b" value="{{b}}" />
     <input type="submit" value="=" />
 </form>
+
+<div>{{result}}</div>
 
 {% endblock %}
