@@ -52,7 +52,7 @@ async fn main_page() -> impl IntoResponse {
             name: String::from("Earth"),
             distance: 1.0,
             mass: 1.0,
-        }
+        },
     ];
 
     let template = MainTemplate { planets: planets };

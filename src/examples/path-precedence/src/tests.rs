@@ -26,12 +26,7 @@ async fn test_main_page() {
 #[tokio::test]
 async fn test_regular_page() {
     let response = create_router()
-        .oneshot(
-            Request::builder()
-                .uri("/foo")
-                .body(Body::empty())
-                .unwrap(),
-        )
+        .oneshot(Request::builder().uri("/foo").body(Body::empty()).unwrap())
         .await
         .unwrap();
 

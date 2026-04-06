@@ -44,7 +44,7 @@ async fn test_static_page() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let content = String::from_utf8(bytes.to_vec()).unwrap();
 
-    let expected  = std::fs::read_to_string("static/css/style.css").unwrap();
+    let expected = std::fs::read_to_string("static/css/style.css").unwrap();
 
     assert_eq!(content, expected);
 }

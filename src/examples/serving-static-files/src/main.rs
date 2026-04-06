@@ -2,13 +2,16 @@ use axum::{Router, response::Html, routing::get};
 use tower_http::services::ServeDir;
 
 async fn handle_main_page() -> Html<&'static str> {
-    Html(r#"<h1>Static</h1>
+    Html(
+        r#"<h1>Static</h1>
     <a href="/static/css/style.css">style.css</a>
-    "#)
+    "#,
+    )
 }
 
 fn create_router() -> Router {
-    Router::new().route("/", get(handle_main_page))
+    Router::new()
+        .route("/", get(handle_main_page))
         .nest_service("/static", ServeDir::new("static"))
 }
 
