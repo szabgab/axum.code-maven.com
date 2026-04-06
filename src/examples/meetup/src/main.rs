@@ -1,11 +1,4 @@
-use axum::{
-    RequestPartsExt, Router,
-    extract::{FromRequestParts, Path},
-    http::{StatusCode, request::Parts},
-    response::{Html, IntoResponse, Response},
-    routing::get,
-};
-use std::collections::HashMap;
+use axum::{Router, extract::Path, response::Html, routing::get};
 
 // Meetup: https://www.meetup.com/  redirects to Meetup Home: https://www.meetup.com/home/
 // About: https://www.meetup.com/code-mavens/
@@ -21,36 +14,6 @@ use std::collections::HashMap;
 // Event drafts: https://www.meetup.com/code-mavens/events/?type=draft
 // this does not show any event: https://www.meetup.com/code-mavens/events/?type=qqrq
 // Event: https://www.meetup.com/code-mavens/events/313944233/?eventOrigin=group_events_list
-
-// #[derive(Debug)]
-// enum Area {
-//     Events,
-//     Members,
-// }
-// 
-// impl<S> FromRequestParts<S> for Area
-// where
-//     S: Send + Sync,
-// {
-//     type Rejection = Response;
-// 
-//     async fn from_request_parts(parts: &mut Parts, _state: &S) -> Result<Self, Self::Rejection> {
-//         let params: Path<HashMap<String, String>> =
-//             parts.extract().await.map_err(IntoResponse::into_response)?;
-// 
-//         let area = params
-//             .get("area")
-//             .ok_or_else(|| (StatusCode::NOT_FOUND, "area param missing").into_response())?;
-// 
-//         match area.as_str() {
-//             "events" => Ok(Area::Events),
-//             "members" => Ok(Area::Members),
-//             _ => Err((StatusCode::NOT_FOUND, "unknown area").into_response()),
-//         }
-//     }
-// }
-
-
 
 async fn main_page() -> Html<&'static str> {
     Html(
@@ -73,9 +36,9 @@ async fn handle_about(Path(group): Path<String>) -> Html<String> {
 }
 
 async fn handle_area(Path((group, area)): Path<(String, String)>) -> Html<String> {
-    Html(format!("<h1>{area} of {group}</h1>"))
+    // Limite area to certain values, e.g. events
+    Html(format!("<h1>{group} {area}</h1>"))
 }
-
 
 fn create_router() -> Router {
     Router::new()
