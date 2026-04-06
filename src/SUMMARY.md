@@ -17,6 +17,7 @@
   - [Echo POST](./echo-post.md)
   - [Path parameters](./path-parameters.md)
   - [Testing](./testing.md)
+- [Wildcard Path Parameters](./wildcard-path-parameters.md)
 - [Input validation](./validation.md)
   - [GET input validation minimum length](./get-input-validation-minimum-length.md)
   - [Versioning - path parameter with fixed values](./versioning.md)
