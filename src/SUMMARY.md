@@ -22,6 +22,7 @@
   - [Versioning - path parameter with fixed values](./versioning.md)
   - [TODO - GET parameter with fixed values](./versioning-get.md)
 - [Set Content-type](./set-content-type.md)
+- [Custom response struct](./custom-response-struct.md)
 - [Templates](./templates.md)
 - [Askama Templates](./askama-templates.md)
   - [Askama - Hello World](./askama-hello-world.md)
