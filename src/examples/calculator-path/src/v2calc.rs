@@ -1,24 +1,29 @@
-use axum::{Router, extract::Path, response::Html, routing::get};
+use axum::{
+    Router, extract::Path, http::StatusCode, response::Html, response::IntoResponse, routing::get,
+};
 
-async fn handle_calc(Path((op, a, b)): Path<(String, u32, u32)>) -> Html<String> {
+async fn handle_calc(Path((op, a, b)): Path<(String, u32, u32)>) -> impl IntoResponse {
     match op.as_str() {
         "add" => {
             let result = a + b;
-            Html(format!("{a} + {b} = {result}"))
+            (StatusCode::OK, Html(format!("{a} + {b} = {result}")))
         }
         "sub" => {
             let result = a - b;
-            Html(format!("{a} - {b} = {result}"))
+            (StatusCode::OK, Html(format!("{a} - {b} = {result}")))
         }
         "mul" => {
             let result = a * b;
-            Html(format!("{a} * {b} = {result}"))
+            (StatusCode::OK, Html(format!("{a} * {b} = {result}")))
         }
         "div" => {
             let result = a / b;
-            Html(format!("{a} / {b} = {result}"))
+            (StatusCode::OK, Html(format!("{a} / {b} = {result}")))
         }
-        _ => panic!("Unhandled operator"),
+        _ => (
+            StatusCode::NOT_FOUND,
+            Html(format!("Unhandled operator: {op}")),
+        ),
     }
 }
 
