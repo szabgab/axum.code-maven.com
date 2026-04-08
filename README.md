@@ -36,4 +36,4 @@ Add more details about tracing (how to save into a file with timestamp, how to s
 
 In the nested example add a main page to the submodule as well to show it working along
 
-
+Calculator using enum for the operator?
