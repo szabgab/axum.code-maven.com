@@ -13,6 +13,10 @@ async fn test_main() {
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::OK);
+
+    let content_type = response.headers().get("content-type").unwrap();
+    assert_eq!(content_type.to_str().unwrap(), "text/html; charset=utf-8");
+
     let body = response.into_body();
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
@@ -32,6 +36,10 @@ async fn test_echo_with_text() {
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::OK);
+
+    let content_type = response.headers().get("content-type").unwrap();
+    assert_eq!(content_type.to_str().unwrap(), "text/html; charset=utf-8");
+
     let body = response.into_body();
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
@@ -51,6 +59,10 @@ async fn test_echo_with_empty_text() {
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::OK);
+
+    let content_type = response.headers().get("content-type").unwrap();
+    assert_eq!(content_type.to_str().unwrap(), "text/html; charset=utf-8");
+
     let body = response.into_body();
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
@@ -66,6 +78,10 @@ async fn test_echo_without_text_param() {
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::BAD_REQUEST);
+
+    let content_type = response.headers().get("content-type").unwrap();
+    assert_eq!(content_type.to_str().unwrap(), "text/plain; charset=utf-8");
+
     let body = response.into_body();
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();

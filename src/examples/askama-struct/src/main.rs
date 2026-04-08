@@ -11,12 +11,6 @@ struct Thing {
     small_number: u8,
 }
 
-#[derive(Template)]
-#[template(path = "main.html")]
-struct MainTemplate {
-    thing: Thing,
-}
-
 struct HtmlTemplate<T>(T);
 
 impl<T> IntoResponse for HtmlTemplate<T>
@@ -33,6 +27,12 @@ where
                 .into_response(),
         }
     }
+}
+
+#[derive(Template)]
+#[template(path = "main.html")]
+struct MainTemplate {
+    thing: Thing,
 }
 
 async fn main_page() -> impl IntoResponse {

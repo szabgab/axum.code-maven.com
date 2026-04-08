@@ -8,22 +8,6 @@ use axum::{
 };
 use serde::Deserialize;
 
-#[derive(Debug, Deserialize)]
-#[allow(dead_code)]
-struct Params {
-    text: String,
-}
-
-#[derive(Template)]
-#[template(path = "main.html")]
-struct MainTemplate {}
-
-#[derive(Template)]
-#[template(path = "echo.html")]
-struct EchoTemplate {
-    text: String,
-}
-
 struct HtmlTemplate<T>(T);
 
 impl<T> IntoResponse for HtmlTemplate<T>
@@ -40,6 +24,22 @@ where
                 .into_response(),
         }
     }
+}
+
+#[derive(Template)]
+#[template(path = "main.html")]
+struct MainTemplate {}
+
+#[derive(Template)]
+#[template(path = "echo.html")]
+struct EchoTemplate {
+    text: String,
+}
+
+#[derive(Debug, Deserialize)]
+#[allow(dead_code)]
+struct Params {
+    text: String,
 }
 
 async fn main_page() -> impl IntoResponse {

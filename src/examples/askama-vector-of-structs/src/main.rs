@@ -12,12 +12,6 @@ struct Planet {
     mass: f64,
 }
 
-#[derive(Template)]
-#[template(path = "main.html")]
-struct MainTemplate {
-    planets: Vec<Planet>,
-}
-
 struct HtmlTemplate<T>(T);
 
 impl<T> IntoResponse for HtmlTemplate<T>
@@ -34,6 +28,12 @@ where
                 .into_response(),
         }
     }
+}
+
+#[derive(Template)]
+#[template(path = "main.html")]
+struct MainTemplate {
+    planets: Vec<Planet>,
 }
 
 async fn main_page() -> impl IntoResponse {

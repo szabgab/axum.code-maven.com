@@ -35,6 +35,7 @@
   - [Askama - loop variables (e.g. comma between values)](./askama-loop-variables.md)
   - [Askama - struct](./askama-struct.md)
   - [Askama - vector of structs](./askama-vector-of-structs.md)
+  - [Askama - unified look](./askama-unified-look.md)
   - [Askama - include header footer](./askama-header-footer.md)
   - [Askama - layout](./askama-layout.md)
   - [Askama - filters](./askama-filters.md)

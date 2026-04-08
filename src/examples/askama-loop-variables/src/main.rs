@@ -6,12 +6,6 @@ use axum::{
     routing::get,
 };
 
-#[derive(Template)]
-#[template(path = "list.html")]
-struct ListTemplate {
-    planets: Vec<String>,
-}
-
 struct HtmlTemplate<T>(T);
 
 impl<T> IntoResponse for HtmlTemplate<T>
@@ -28,6 +22,12 @@ where
                 .into_response(),
         }
     }
+}
+
+#[derive(Template)]
+#[template(path = "list.html")]
+struct ListTemplate {
+    planets: Vec<String>,
 }
 
 async fn main_page() -> impl IntoResponse {

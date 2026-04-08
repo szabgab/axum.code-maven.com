@@ -1,6 +1,5 @@
 # Askama - include header footer
 
-
 {% embed include file="src/examples/askama-header-footer/Cargo.toml" %}
 
 {% embed include file="src/examples/askama-header-footer/src/main.rs" %}
