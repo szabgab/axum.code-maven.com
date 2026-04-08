@@ -1,4 +1,4 @@
-# Nesteted applications
+# Nested applications
 
 {% embed include file="src/examples/nested-applications/Cargo.toml" %}
 
