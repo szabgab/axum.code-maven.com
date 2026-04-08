@@ -11,13 +11,14 @@ async fn main_page() -> Html<&'static str> {
 
 async fn handler_404() -> impl IntoResponse {
     (StatusCode::NOT_FOUND, "Custom missing page")
+    // We could also set the content-type to be text/html
+    //(StatusCode::NOT_FOUND, Html("Custom missing page"))
 }
 
 fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
         .fallback(handler_404)
-    // add a fallback service for handling routes to unknown paths
 }
 
 #[tokio::main]

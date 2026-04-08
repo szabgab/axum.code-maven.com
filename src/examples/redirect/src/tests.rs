@@ -13,6 +13,10 @@ async fn test_main() {
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::OK);
+
+    let content_type = response.headers().get("content-type").unwrap();
+    assert_eq!(content_type.to_str().unwrap(), "text/html; charset=utf-8");
+
     let body = response.into_body();
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
@@ -33,6 +37,9 @@ async fn test_target_page() {
         .unwrap();
     assert_eq!(response.status(), StatusCode::OK);
 
+    let content_type = response.headers().get("content-type").unwrap();
+    assert_eq!(content_type.to_str().unwrap(), "text/html; charset=utf-8");
+
     let body = response.into_body();
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
@@ -52,6 +59,9 @@ async fn test_internal_redirect() {
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::TEMPORARY_REDIRECT);
+
+    assert!(response.headers().get("content-type").is_none());
+
     let location = response.headers().get("Location").unwrap();
     assert_eq!(location, "/target-page");
 }
@@ -68,6 +78,9 @@ async fn test_external_redirect() {
         .await
         .unwrap();
     assert_eq!(response.status(), StatusCode::PERMANENT_REDIRECT);
+
+    assert!(response.headers().get("content-type").is_none());
+
     let location = response.headers().get("Location").unwrap();
     assert_eq!(location, "https://rust.code-maven.com/");
 }
