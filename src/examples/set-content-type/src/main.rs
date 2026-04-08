@@ -13,9 +13,10 @@ async fn handle_main_page() -> Html<&'static str> {
     Html(
         r#"
     <h1>Set Content-Type</h1>
-    Main page is static <b>text/html</b><br>
+    Main page is <b>static text/html</b><br>
     <a href="/static-plain-text">static <b>text/plain<b/></a><br>
     <a href="/dynamic-plain-text">dynamic <b>text/plain</b></a><br>
+    <a href="/dynamic-html">dynamic <b>text/html</b></a><br>
     <a href="/js">application/javascript</a><br>
     <a href="/css">css</a><br>
 "#,
@@ -23,19 +24,29 @@ async fn handle_main_page() -> Html<&'static str> {
 }
 
 async fn handle_static_plain_text() -> &'static str {
-    "<h1>Plain text</h1>"
+    "<h1>static text/plain</h1>"
 }
 
 async fn handle_dynamic_plain_text() -> String {
     let now = SystemTime::now();
     let since_the_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     format!(
-        "<h1>Plain text. Time since epoch: {:?}</h1>",
+        "<h1>dynamic text/plain</h1> Time since epoch: {:?}</h1>",
         since_the_epoch
     )
 }
 
+async fn handle_dynamic_html() -> Html<String> {
+    let now = SystemTime::now();
+    let since_the_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
+    Html(format!(
+        "<h1>dynamic text/html</h1> Time since epoch: {:?}</h1>",
+        since_the_epoch
+    ))
+}
+
 async fn handle_json() -> Json<Vec<String>> {
+    // application/json
     let planets = vec![
         String::from("Mercury"),
         String::from("Venus"),
@@ -72,6 +83,7 @@ fn create_router() -> Router {
         .route("/", get(handle_main_page))
         .route("/static-plain-text", get(handle_static_plain_text))
         .route("/dynamic-plain-text", get(handle_dynamic_plain_text))
+        .route("/dynamic-html", get(handle_dynamic_html))
         .route("/css", get(send_style_css))
         .route("/js", get(send_javascript))
         .route("/json", get(handle_json))

@@ -21,6 +21,7 @@ async fn test_main_page() {
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
     assert!(html.contains("<h1>Set Content-Type</h1>"));
+    assert!(html.contains("Main page is <b>static text/html</b><br>"));
 }
 
 #[tokio::test]
@@ -44,7 +45,7 @@ async fn test_static_plain_text() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert_eq!(html, "<h1>Plain text</h1>");
+    assert_eq!(html, "<h1>static text/plain</h1>");
 }
 
 #[tokio::test]
@@ -68,7 +69,31 @@ async fn test_dynamic_plain_text() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert!(html.contains("<h1>Plain text. Time since epoch: "));
+    assert!(html.contains("<h1>dynamic text/plain</h1> Time since epoch: "));
+}
+
+#[tokio::test]
+async fn test_dynamic_html() {
+    let response = create_router()
+        .oneshot(
+            Request::builder()
+                .uri("/dynamic-html")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+
+    assert_eq!(response.status(), StatusCode::OK);
+
+    let content_type = response.headers().get("content-type").unwrap();
+    assert_eq!(content_type.to_str().unwrap(), "text/html; charset=utf-8");
+
+    let body = response.into_body();
+    let bytes = body.collect().await.unwrap().to_bytes();
+    let html = String::from_utf8(bytes.to_vec()).unwrap();
+
+    assert!(html.contains("<h1>dynamic text/html</h1> Time since epoch: "));
 }
 
 #[tokio::test]
