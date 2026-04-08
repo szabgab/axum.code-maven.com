@@ -1,6 +1,7 @@
 # Path parameters
 
-Show how to accept parameters in the path of the request. For example we to accept all the paths that look like this: `https://example.org/user/foobar`.
+Show how to accept parameters in the path of the request. For example we to accept all the paths that look like this: `https://example.org/user/foobar`. This will accept any value after `/user/` except a slash.
+So `/user/foo/bar` will not match. For that see the Wildcard Path parameters.
 
 
 ## Running

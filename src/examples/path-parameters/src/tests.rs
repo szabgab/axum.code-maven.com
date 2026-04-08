@@ -46,3 +46,26 @@ async fn test_user_page() {
 
     assert_eq!(html, "Hello, qqrq!");
 }
+
+#[tokio::test]
+async fn test_path_with_slash() {
+    let response = create_router()
+        .oneshot(
+            Request::builder()
+                .uri("/user/some/thing")
+                .body(Body::empty())
+                .unwrap(),
+        )
+        .await
+        .unwrap();
+
+    assert_eq!(response.status(), StatusCode::NOT_FOUND);
+
+    // No content-type
+    assert!(response.headers().get("content-type").is_none());
+
+    let body = response.into_body();
+    let bytes = body.collect().await.unwrap().to_bytes();
+    let html = String::from_utf8(bytes.to_vec()).unwrap();
+    assert_eq!(html, "");
+}

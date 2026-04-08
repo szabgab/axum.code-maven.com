@@ -17,11 +17,16 @@ async fn special_page() -> Html<String> {
     Html(String::from("Special"))
 }
 
+//async fn other_page() -> Html<String> {
+//    Html(String::from("Other"))
+//}
+
 fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
         .route("/{name}", get(name_page))
         .route("/special", get(special_page))
+    //.route("/special", get(other_page))
 }
 
 #[tokio::main]
