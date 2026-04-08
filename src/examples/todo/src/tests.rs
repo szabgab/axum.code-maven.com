@@ -22,31 +22,28 @@ async fn test_main() {
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
     assert!(html.contains(r#"<title>TODO</title>"#));
-    //assert!(html.contains(r#"<form method="get" action="/echo">"#));
+    assert!(html.contains(r#"<h1>TODO</h1>"#));
 }
 
-// #[tokio::test]
-// async fn test_echo_with_text() {
-//     let response = create_router()
-//         .oneshot(
-//             Request::builder()
-//                 .uri("/echo?text=Hello%20World")
-//                 .body(Body::empty())
-//                 .unwrap(),
-//         )
-//         .await
-//         .unwrap();
-//     assert_eq!(response.status(), StatusCode::OK);
+#[tokio::test]
+async fn test_edit_new() {
+    let response = create_router()
+        .oneshot(Request::builder().uri("/edit").body(Body::empty()).unwrap())
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::OK);
 
-//     let content_type = response.headers().get("content-type").unwrap();
-//     assert_eq!(content_type.to_str().unwrap(), "text/html; charset=utf-8");
+    let content_type = response.headers().get("content-type").unwrap();
+    assert_eq!(content_type.to_str().unwrap(), "text/html; charset=utf-8");
 
-//     let body = response.into_body();
-//     let bytes = body.collect().await.unwrap().to_bytes();
-//     let html = String::from_utf8(bytes.to_vec()).unwrap();
+    let body = response.into_body();
+    let bytes = body.collect().await.unwrap().to_bytes();
+    let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-//     assert!(html.contains("You wrote: <b>Hello World</b>"));
-// }
+    assert!(html.contains("<title>Add new item</title>"));
+    assert!(html.contains("<h1>Add new item</h1>"));
+    assert!(html.contains(r#"<form method="post" action="/edit">"#));
+}
 
 // #[tokio::test]
 // async fn test_echo_with_empty_text() {

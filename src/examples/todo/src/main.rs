@@ -33,12 +33,15 @@ where
 
 #[derive(Template)]
 #[template(path = "main.html")]
-struct MainTemplate { title: String }
+struct MainTemplate {
+    title: String,
+}
 
-// #[derive(Template)]
-// #[template(path = "edit.html")]
-// struct EditItemTemplate {
-// }
+#[derive(Template)]
+#[template(path = "edit.html")]
+struct EditTemplate {
+    title: String,
+}
 
 #[derive(Debug, Deserialize)]
 #[allow(dead_code)]
@@ -47,19 +50,24 @@ struct Params {
 }
 
 async fn main_page() -> impl IntoResponse {
-    let template = MainTemplate { title: String::from("TODO") };
+    let template = MainTemplate {
+        title: String::from("TODO"),
+    };
     HtmlTemplate(template)
 }
 
-// async fn edit(Query(params): Query<Params>) -> impl IntoResponse {
-//     let template = EditTemplate {  };
-//     HtmlTemplate(template)
-// }
+// Query(params): Query<Params>
+async fn edit() -> impl IntoResponse {
+    let template = EditTemplate {
+        title: String::from("Add new item"),
+    };
+    HtmlTemplate(template)
+}
 
 fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
-    //        .route("/edit", get(edit))
+        .route("/edit", get(edit))
 }
 #[tokio::main]
 async fn main() {
