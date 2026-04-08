@@ -8,6 +8,20 @@ I personally like to separate such templates - that are supposed to be included 
 1. We included the `incl/echo_form.html` in both the main page and the `echo.html` file.
 1. We update the tests to verify that the form appears on both pages.
 
+```
+$ tree
+.
+├── Cargo.lock
+├── Cargo.toml
+├── src
+│   ├── main.rs
+│   └── tests.rs
+└── templates
+    ├── echo.html
+    ├── incl
+    │   └── echo_form.html
+    └── main.html
+```
 
 {% embed include file="src/examples/askama-include/Cargo.toml" %}
 

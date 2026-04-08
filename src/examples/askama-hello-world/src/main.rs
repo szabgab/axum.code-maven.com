@@ -6,10 +6,6 @@ use axum::{
     routing::get,
 };
 
-#[derive(Template)]
-#[template(path = "main.html")]
-struct MainTemplate {}
-
 struct HtmlTemplate<T>(T);
 
 impl<T> IntoResponse for HtmlTemplate<T>
@@ -27,6 +23,10 @@ where
         }
     }
 }
+
+#[derive(Template)]
+#[template(path = "main.html")]
+struct MainTemplate {}
 
 async fn main_page() -> impl IntoResponse {
     let template = MainTemplate {};
