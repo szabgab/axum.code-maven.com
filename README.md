@@ -24,3 +24,16 @@ Askama
     - Other filters
     - Create a filter manually, commafy?
     - 3rd party filters?
+
+
+Show example of external templates that are setup next to the binary (so no embedded in the binary)
+
+Show redirect on condition (e.g. on Academy we have redirect to login and also a redirect after login)
+
+Show how to handle a case when a path variable matches, but the value is still incorrect e.g. /user/ID and the ID is not in the database. (is it a 404 error?)
+
+Add more details about tracing (how to save into a file with timestamp, how to set log level, how to filter areas of logging (only our app not axum)
+
+In the nested example add a main page to the submodule as well to show it working along
+
+
