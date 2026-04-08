@@ -23,10 +23,10 @@ $ tree
 
 {% embed include file="src/examples/askama-layout/src/tests.rs" %}
 
-{% embed include file="src/examples/askama-layout/templates/base.html" %}
+{% embed include file="src/examples/askama-layout/templates/layouts/base.html" %}
 
-{% embed include file="src/examples/askama-layout/templates/content.html" %}
+{% embed include file="src/examples/askama-layout/templates/people.html" %}
 
-{% embed include file="src/examples/askama-layout/templates/content_with_title.html" %}
+{% embed include file="src/examples/askama-layout/templates/person.html" %}
 
 
