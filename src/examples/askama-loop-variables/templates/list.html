@@ -1,5 +1,12 @@
 <h1>List</h1>
 
+
 <h2>Planets</h2>
-{% for planet in planets %}{{planet}}{% if ! loop.last %}, {% endif %}{% endfor %}
+<span id="plain">{% for planet in planets %}{{planet}}, {% endfor %}</span>
+
+<h2>Planets - last</h2>
+<span id="last">{% for planet in planets %}{{planet}}{% if ! loop.last %}, {% endif %}{% endfor %}</span>
+
+<h2>Planets - and</h2>
+<span id="and">{% for planet in planets %}{{planet}}{% if ! loop.last%}, {% endif %}{% if loop.index == planets.len() - 1 %}and {% endif %}{% endfor %}</span>
 

@@ -17,5 +17,7 @@ async fn test_list() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert!(html.contains("Mercury, Venus, Earth, Mars"));
+    assert!(html.contains(r#"<span id="plain">Mercury, Venus, Earth, Mars, </span>"#));
+    assert!(html.contains(r#"<span id="last">Mercury, Venus, Earth, Mars</span>"#));
+    assert!(html.contains(r#"<span id="and">Mercury, Venus, Earth, and Mars</span>"#));
 }
