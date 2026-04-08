@@ -29,34 +29,33 @@ where
 struct MainTemplate {}
 
 #[derive(Template)]
-#[template(path = "content.html")]
-struct ContentTemplate {}
+#[template(path = "person.html")]
+struct PersonTemplate {}
 
 #[derive(Template)]
-#[template(path = "content_with_title.html")]
-struct ContentWithTitleTemplate {}
-
+#[template(path = "people.html")]
+struct PeopleTemplate {}
 
 async fn main_page() -> impl IntoResponse {
     let template = MainTemplate {};
     HtmlTemplate(template)
 }
 
-async fn content_default_title() -> impl IntoResponse {
-    let template = ContentTemplate {};
+async fn person() -> impl IntoResponse {
+    let template = PersonTemplate {};
     HtmlTemplate(template)
 }
 
-async fn content_with_title() -> impl IntoResponse {
-    let template = ContentWithTitleTemplate {};
+async fn people() -> impl IntoResponse {
+    let template = PeopleTemplate {};
     HtmlTemplate(template)
 }
 
 fn create_router() -> Router {
     Router::new()
         .route("/", get(main_page))
-        .route("/content", get(content_default_title))
-        .route("/content-with-title", get(content_with_title))
+        .route("/person", get(person))
+        .route("/people", get(people))
 }
 #[tokio::main]
 async fn main() {

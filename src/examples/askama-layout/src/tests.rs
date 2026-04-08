@@ -22,14 +22,15 @@ async fn test_main() {
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
     assert!(html.contains("<h1>Layout</h1>"));
+    assert!(html.contains(r#"<li><a href="/person">Person</a></li>"#));
 }
 
 #[tokio::test]
-async fn test_content() {
+async fn test_person() {
     let response = create_router()
         .oneshot(
             Request::builder()
-                .uri("/content")
+                .uri("/person")
                 .body(Body::empty())
                 .unwrap(),
         )
@@ -45,15 +46,15 @@ async fn test_content() {
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
     assert!(html.contains("<title>Default Title</title>"));
-    assert!(html.contains("Block Content"));
+    assert!(html.contains("Content of the Person page"));
 }
 
 #[tokio::test]
-async fn test_content_with_title() {
+async fn test_people() {
     let response = create_router()
         .oneshot(
             Request::builder()
-                .uri("/content-with-title")
+                .uri("/people")
                 .body(Body::empty())
                 .unwrap(),
         )
@@ -68,6 +69,6 @@ async fn test_content_with_title() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert!(html.contains("<title>Block title</title>"));
-    assert!(html.contains("Content With Title"));
+    assert!(html.contains("<title>List of people</title>"));
+    assert!(html.contains("Content of the People page"));
 }

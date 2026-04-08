@@ -9,12 +9,11 @@ $ tree
 │   ├── main.rs
 │   └── tests.rs
 └── templates
-    ├── content.html
-    ├── content_with_title.html
     ├── layouts
     │   └── base.html
-    └── main.html
-
+    ├── main.html
+    ├── people.html
+    └── person.html
 ```
 
 
