@@ -10,22 +10,24 @@ struct AppState {
 
 #[tokio::main]
 async fn main() {
-    // init template engine and add templates
+    let app = create_router();
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
+        .await
+        .unwrap();
+    println!("listening on http://{}", listener.local_addr().unwrap());
+    axum::serve(listener, app).await.unwrap();
+}
+
+fn create_router() -> Router {
     let mut env = Environment::new();
     env.add_template("main", include_str!("../templates/main.jinja"))
         .unwrap();
 
     let app_state = Arc::new(AppState { env });
 
-    let app = Router::new()
+    Router::new()
         .route("/", get(main_page))
-        .with_state(app_state);
-
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
-        .await
-        .unwrap();
-    println!("listening on http://{}", listener.local_addr().unwrap());
-    axum::serve(listener, app).await.unwrap();
+        .with_state(app_state)
 }
 
 async fn main_page(State(state): State<Arc<AppState>>) -> Result<Html<String>, StatusCode> {
@@ -41,3 +43,5 @@ async fn main_page(State(state): State<Arc<AppState>>) -> Result<Html<String>, S
     Ok(Html(rendered))
 }
 
+#[cfg(test)]
+mod tests;
