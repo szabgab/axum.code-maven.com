@@ -1,7 +1,7 @@
 use axum::extract::State;
 use axum::http::StatusCode;
-use axum::{response::Html, routing::get, Router};
-use minijinja::{context, Environment};
+use axum::{Router, response::Html, routing::get};
+use minijinja::{Environment, context};
 use std::sync::Arc;
 
 struct AppState {
@@ -20,7 +20,7 @@ async fn main() {
 
 fn create_router() -> Router {
     let mut env = Environment::new();
-    env.add_template("main", include_str!("../templates/main.jinja"))
+    env.add_template("main", include_str!("../templates/main.html"))
         .unwrap();
 
     let app_state = Arc::new(AppState { env });

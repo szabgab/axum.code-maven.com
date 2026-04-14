@@ -40,6 +40,8 @@
   - [Askama - layout](./askama-layout.md)
   - [Askama - filters](./askama-filters.md)
   - [Askama - safe](./askama-safe.md)
+- [Minijinja Templates](./minijinja-templates.md)
+  - [Minijinja - variable](./minijinja-variable.md)
 - [Custom 404 page](./custom-404-page.md)
 - [Redirect](./redirect.md)
 - [Logging / Tracing](./logging.md)
