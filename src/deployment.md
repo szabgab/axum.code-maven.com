@@ -21,7 +21,6 @@ It will take  about a minute to create the Linode and you'll see your IP there.
 # apt install -y nginx
 ```
 
-* ssh root@IP
 * Create user
 
 ```
@@ -51,9 +50,15 @@ cargo build --release
 
 This will create a binary in the `target/release` folder. In the case of the echo-get example this binary is called `echo-get`.
 
+```
+docker run --rm -it -v "$PWD:/src" --user ubuntu -w /src szabgab/rust:latest /home/ubuntu/.cargo/bin/cargo build --release
+```
+
+
 Upload to the server
 
-scp target/release/echo-get demo@IP:app/demo
+scp target/release/echo-get demo@IP:app/axum-demo
+
 
 
 ## Verify that the application runs
@@ -78,11 +83,12 @@ That should show the main page
 
 ## Set it up as a service
 
+{% embed include file="src/examples/deploy/axum-demo.service" %}
 
 * Upload the `demo.service` file to `/etc/systemd/system/demo.service`
 * scp demo.service root@IP:/etc/systemd/system/demo.service
-* `sudo chown root.root /etc/systemd/system/academy.service`
-* On the server run
+
+ssh root@IP
 
 ```
 # systemctl daemon-reload
@@ -97,16 +103,28 @@ Running `curl http://localhost:3000` again (on the server) should return the pag
 
 ## nginx
 
-scp demo.code-maven.com     root@IP:/etc/nginx/sites-available/
+scp axum-demo.code-maven.com     root@IP:/etc/nginx/sites-available/
 
 ```
 # cd /etc/nginx/sites-enabled
-# ln -s /etc/nginx/sites-available/demo.code-maven.com
+# ln -s /etc/nginx/sites-available/axum-demo.code-maven.com
 # systemctl restart nginx
 ```
 
-{% embed include file="src/examples/deploy/axum-demo.service" %}
 
 {% embed include file="src/examples/deploy/axum-demo.code-maven.com" %}
+
+
+## HTTPS Certificate
+
+* Install certbot for Let's Encode certificate following https://certbot.eff.org/instructions?ws=nginx&os=snap :
+
+```
+# snap install --classic certbot
+# ln -s /snap/bin/certbot /usr/bin/certbot
+# certbot --nginx
+```
+
+Domain name to certify: axum-demo.code-maven.com
 
 

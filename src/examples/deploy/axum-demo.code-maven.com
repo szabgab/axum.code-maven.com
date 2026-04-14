@@ -14,13 +14,13 @@
 #}
 
 server {
-  server_name demo.code-maven.com;
+  server_name axum-demo.code-maven.com;
   listen    [::]:80;
   listen    80;
 #  listen    [::]:443 ssl;
 #  listen    443 ssl;
-#    ssl_certificate /etc/letsencrypt/live/demo.code-maven.com/fullchain.pem; # managed by Certbot
-#    ssl_certificate_key /etc/letsencrypt/live/demo.code-maven.com/privkey.pem; # managed by Certbot
+#    ssl_certificate /etc/letsencrypt/live/axum-demo.code-maven.com/fullchain.pem; # managed by Certbot
+#    ssl_certificate_key /etc/letsencrypt/live/axum-demo.code-maven.com/privkey.pem; # managed by Certbot
 
 #  location /.well-known {
 #    alias /home/demo/app/letsencrypt/.well-known/;
@@ -39,8 +39,6 @@ server {
 
   access_log  /var/log/nginx/demo.log;
   error_log /var/log/nginx/demo.error.log;
-
-
 
 }
 

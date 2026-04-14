@@ -3,11 +3,11 @@ Description=Axum Demo Service
 
 [Service]
 Type=simple
-User=root
-Group=root
+User=demo
+Group=demo
 Restart=always
 WorkingDirectory=/home/demo/app/
-ExecStart=/home/demo/app/demo
+ExecStart=/home/demo/app/axum-demo
 Nice=19
 LimitNOFILE=16384
 
