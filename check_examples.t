@@ -17,6 +17,10 @@ say Dumper \@examples;
 
 for my $dir (@examples) {
     say $dir;
+    if ($dir eq "src/examples/deploy") {
+        say "The src/examples/deploy has no code. Skipping.";
+        next;
+    }
     chdir $dir;
     {
         my @cmd = ('cargo', 'test');
