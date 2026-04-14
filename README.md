@@ -17,8 +17,8 @@ In our application we need to map the path part of each URL the user might visit
 For this we need a function to handle the request and we need the map the path portion of the URL to the function that will handle it.
 For example if we would like to handle the URL `https://example.org/hello/world` then we need to map `/hello/world` path to the appropriate function in our application. In particular the address of the main page is `https://example.org/` and thus the path is `/`.
 
-special handling of 400 errors (e.g. when the parameter is missing, value is incorrect or the parsing fails for other resonse
-special handling of all the other errors we see (e.g. when sending a get request to a route defined only as post)
+The special handling of 400 errors (e.g. when the parameter is missing, value is incorrect or the parsing fails for other reason.
+The special handling of all the other errors we see (e.g. when sending a get request to a route defined only as post).
 
 Askama
     - Other filters
@@ -39,3 +39,21 @@ In the nested example add a main page to the submodule as well to show it workin
 Calculator using enum for the operator?
 
 Show that the binary includes the templates even if they are included or extended by other templates.
+
+
+* Test every example
+* Check that all the files in the `examples` folder are included. (Create a list of exceptions if necessary)
+* Make sure all the dependencies in all the Cargo.toml files are listed in `crates.md` file.
+* Generate epub and pdf files.
+* Add timestamp of when the book was generated.
+
+
+# Input validation
+
+
+For GET, POST, and path parameters.
+
+* Accepting strings.
+* Accepting values in other types (numbers, booleans).
+* Accepting only IDs that are in the database.
+* Accepting a limited set of values that can be defined in an enum.
