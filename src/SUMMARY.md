@@ -45,6 +45,7 @@
 - [Custom 404 page](./custom-404-page.md)
 - [Redirect](./redirect.md)
 - [Logging / Tracing](./logging.md)
+  - [Logging to a file](./logging-to-a-file.md)
 - [Nesting applications](./nesting-applications.md)
 - [Nested applications](./nested-applications.md)
 - [Calculator Path](./calculator-path.md)
