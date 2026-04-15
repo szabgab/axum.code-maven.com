@@ -85,15 +85,20 @@ That should show the main page
 
 {% embed include file="src/examples/deploy/axum-demo.service" %}
 
-* Upload the `demo.service` file to `/etc/systemd/system/demo.service`
-* scp demo.service root@IP:/etc/systemd/system/demo.service
+* Upload the `axum-demo.service` file to `/etc/systemd/system/axum-demo.service`
 
+```
+scp axum-demo.service root@IP:/etc/systemd/system/axum-demo.service
+```
+
+```
 ssh root@IP
+```
 
 ```
 # systemctl daemon-reload
-# systemctl enable demo.service
-# systemctl start demo.service
+# systemctl enable axum-demo.service
+# systemctl start axum-demo.service
 ```
 
 ## Verify that the application runs as a service:
@@ -114,17 +119,21 @@ scp axum-demo.code-maven.com     root@IP:/etc/nginx/sites-available/
 
 {% embed include file="src/examples/deploy/axum-demo.code-maven.com" %}
 
+## DNS name resolving
+
+If you have a domain you can map any hostname to this IP. I use the [iwantmyname](https://iwantmyname.com/en/) service to register domain names and handle DNS configuration. So I mapped `axum-demo.code-maven.com` to the IP addresses Linode gave me. (Both IPv4 and IPv6.)
+
+Then waited a minute to allow for their service to be updated and then checked with [whatsmydns](https://www.whatsmydns.net) service if the new name already resolves by a large chunk of the Internet.
 
 ## HTTPS Certificate
 
-* Install certbot for Let's Encode certificate following https://certbot.eff.org/instructions?ws=nginx&os=snap :
+* [Install certbot](https://certbot.eff.org/instructions?ws=nginx&os=snap) for Let's Encode certificate following the instructions in that link.
 
 ```
 # snap install --classic certbot
 # ln -s /snap/bin/certbot /usr/bin/certbot
 # certbot --nginx
 ```
-
 Domain name to certify: axum-demo.code-maven.com
 
 
