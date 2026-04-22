@@ -4,9 +4,15 @@ use tower::ServiceExt;
 
 use super::*;
 
+fn test_config() -> Arc<Config> {
+    Arc::new(Config {
+        name: String::from("test name"),
+    })
+}
+
 #[tokio::test]
 async fn test_main_page() {
-    let response = create_router()
+    let response = create_router(test_config())
         .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
         .await
         .unwrap();
@@ -20,12 +26,12 @@ async fn test_main_page() {
     let bytes = body.collect().await.unwrap().to_bytes();
     let html = String::from_utf8(bytes.to_vec()).unwrap();
 
-    assert_eq!(html, "<h1>Hello, World!</h1>");
+    assert_eq!(html, "<h1>Hello, test name!</h1>");
 }
 
 #[tokio::test]
 async fn test_missing_page() {
-    let response = create_router()
+    let response = create_router(test_config())
         .oneshot(
             Request::builder()
                 .uri("/other")

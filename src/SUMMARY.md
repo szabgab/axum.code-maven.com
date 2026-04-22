@@ -43,6 +43,7 @@
 - [Minijinja Templates](./minijinja-templates.md)
   - [Minijinja - variable](./minijinja-variable.md)
 - [Custom 404 page](./custom-404-page.md)
+- [Configuration with state](./configuration-with-state.md)
 - [Redirect](./redirect.md)
 - [Logging / Tracing](./logging.md)
   - [Logging to a file](./logging-to-a-file.md)
