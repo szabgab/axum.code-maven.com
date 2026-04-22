@@ -57,6 +57,7 @@
 - [Embed external Static File](./embed-external-static-file.md)
 - [Embed external Static File with cache buster](./embed-external-static-file-with-cache-buster.md)
 - [Special handling for HEAD requests](./special-handling-for-head-requests.md)
+- [axum with Postgres](./axum-with-postgres.md)
 - [API](./api.md)
   - [API Hello World](./api-hello-world.md)
   - [API Calculator](./api-calculator.md)
