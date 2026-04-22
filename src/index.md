@@ -1,3 +1,5 @@
-# Axum
+# axum
 
-Welcome to the Axum book.
+Welcome to the axum by example book.
+
+

@@ -1,6 +1,7 @@
 # Summary
 
 - [axum](./index.md)
+  - [Thanks](./thanks.md)
   - [Goals](./goals.md)
   - [Prerequisites](./prerequisites.md)
   - [Installing Rust](./installing-rust.md)
