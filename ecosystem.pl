@@ -5,7 +5,7 @@ use feature 'say';
 use LWP::Simple qw(get);
 use LWP::UserAgent ();
 
-my $FILE = "src/axum_ecosystem.md";
+my $FILE = "src/ecosystem.md";
 
 main();
 exit;
@@ -15,11 +15,11 @@ my $skipped = 0;
 my $failure = 0;
 my $success = 0;
 sub main {
-    my ($command) = @ARGV;
-    $command //= '';
-    if ($command eq "update") {
-        download_file();
-    } elsif ($command eq 'check') {
+    #my ($command) = @ARGV;
+    #$command //= '';
+    #if ($command eq "update") {
+    #    download_file();
+    #} elsif ($command eq 'check') {
         my $start = time;
         check_content();
         my $elapsed = int(time - $start);
@@ -27,9 +27,9 @@ sub main {
         if ($success + $skipped + $failure != $total) {
             say "ERROR: Something does not add up!";
         }
-    } else {
-        die "Usage: $0 [update|check]\n"
-    }
+        #} else {
+        #    die "Usage: $0 [update|check]\n"
+        #}
 }
 
 sub download_file {
