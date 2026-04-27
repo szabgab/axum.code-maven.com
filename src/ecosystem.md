@@ -132,7 +132,7 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 ## Tutorials
 
 - [Rust on Nails](https://rust-on-nails.com/): A full stack architecture for Rust web applications
-- [axum-tutorial](https://github.com/programatik29/axum-tutorial) ([website][axum-tutorial-website](https://programatik29.github.io/axum-tutorial/)): axum tutorial for beginners
+- [axum-tutorial](https://github.com/programatik29/axum-tutorial): axum tutorial for beginners. [website](https://programatik29.github.io/axum-tutorial/)
 - [demo-rust-axum](https://github.com/joelparkerhenderson/demo-rust-axum): Demo of Rust and axum
 - [Getting Started with Axum](https://carlosmv.hashnode.dev/getting-started-with-axum-rust): axum tutorial, GET, POST endpoints and serving files
 - [Using Rust, Axum, PostgreSQL, and Tokio to build a Blog](https://spacedimp.com/blog/using-rust-axum-postgresql-and-tokio-to-build-a-blog/)
