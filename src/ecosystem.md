@@ -122,11 +122,15 @@ If your project isn't listed here and you would like it to be, please feel free 
 - [Rust on Nails](https://rust-on-nails.com/): A full stack architecture for Rust web applications
 - [axum-tutorial](https://github.com/programatik29/axum-tutorial) ([website][axum-tutorial-website](https://programatik29.github.io/axum-tutorial/)): axum tutorial for beginners
 - [demo-rust-axum](https://github.com/joelparkerhenderson/demo-rust-axum): Demo of Rust and axum
-- [Introduction to axum (talk)](https://www.youtube.com/watch?v=ETdmhh7OQpA): Talk about axum from the Copenhagen Rust Meetup
 - [Getting Started with Axum](https://carlosmv.hashnode.dev/getting-started-with-axum-rust): axum tutorial, GET, POST endpoints and serving files
 - [Using Rust, Axum, PostgreSQL, and Tokio to build a Blog](https://spacedimp.com/blog/using-rust-axum-postgresql-and-tokio-to-build-a-blog/)
-- [Introduction to axum](https://www.youtube.com/playlist?list=PLrmY5pVcnuE-_CP7XZ_44HN-mDrLQV4nS): YouTube playlist
-- [Rust Axum Full Course](https://www.youtube.com/watch?v=XZtlD_m59sM): YouTube video
 - [API Development with Rust](https://rust-api.dev/docs/front-matter/preface/): REST APIs based on axum
 - [axum-rest-api-postgres-redis-jwt-docker](https://sheroz.com/pages/blog/rust-axum-rest-api-postgres-redis-jwt-docker.html): Getting started with REST API Web Services in Rust using Axum, PostgreSQL, Redis, and JWT
 - [Building a SaaS with Rust & Next.js](https://joshmo.bearblog.dev/lets-build-a-saas-with-rust/) A tutorial for combining Next.js with Rust via axum to make a SaaS.
+
+## 📺 Videos
+
+- [Introduction to axum (talk)](https://www.youtube.com/watch?v=ETdmhh7OQpA): David Pedersen on Axum - Talk about axum from the Copenhagen Rust Meetup 2022.07.06 - 42 min.
+- [Introduction to axum](https://www.youtube.com/playlist?list=PLrmY5pVcnuE-_CP7XZ_44HN-mDrLQV4nS): YouTube playlist by Brooks Builds (brookzerker) 2022.12.22
+- [Rust Axum Full Course](https://www.youtube.com/watch?v=XZtlD_m59sM): YouTube video
+
