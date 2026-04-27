@@ -131,6 +131,6 @@ If your project isn't listed here and you would like it to be, please feel free 
 ## 📺 Videos
 
 - [Introduction to axum (talk)](https://www.youtube.com/watch?v=ETdmhh7OQpA): David Pedersen on Axum - Talk about axum from the Copenhagen Rust Meetup 2022.07.06 - 42 min.
-- [Introduction to axum](https://www.youtube.com/playlist?list=PLrmY5pVcnuE-_CP7XZ_44HN-mDrLQV4nS): YouTube playlist by Brooks Builds (brookzerker) 2022.12.22
-- [Rust Axum Full Course](https://www.youtube.com/watch?v=XZtlD_m59sM): YouTube video
+- [Introduction to axum](https://www.youtube.com/playlist?list=PLrmY5pVcnuE-_CP7XZ_44HN-mDrLQV4nS): YouTube playlist by Brooks Builds (brookzerker) 2022.12.22 ~ 10 hours. (axum 05-06 with an update to 0.8.1)
+- [Rust Axum Full Course](https://www.youtube.com/watch?v=XZtlD_m59sM): YouTube video by Jeremy Chone 2023.04.09 - 1 hour 20 min (GitHub repo updated to axum 0.7)
 
