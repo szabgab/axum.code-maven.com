@@ -1,10 +1,16 @@
 # More examples, tutorials
 
-This page, contains a list of additional axum-related crates, project showcases, and several tutorials. The data here started as a copy of the `ECOSYSTEM.md` file of the [repository of axum](https://github.com/tokio-rs/axum) that was [removed from there](https://github.com/tokio-rs/axum/pull/3737).
+This page, contains a list of additional axum-related crates, project showcases, and several tutorials. The data here started as a copy of the `ECOSYSTEM.md` file of the [repository of axum](https://github.com/tokio-rs/axum) that was [removed from there](https://github.com/tokio-rs/axum/pull/3737) and since then it is maintained by the  author of this site.
 
-# Community Projects
+## Community Projects
 
 If your project isn't listed here and you would like it to be, please feel free to create a PR.
+
+If you find a broken link or incorrect information, please feel free to open an issue or create a PR.
+
+## Disclaimer
+
+I have not checked these projects and I don't necessarily recommend them. Use them at your own discretion.
 
 ## Community maintained axum ecosystem
 
