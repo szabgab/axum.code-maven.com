@@ -75,6 +75,7 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [AxumKit](https://github.com/levish0/AxumKit): Production-ready Rust web backend template with authentication, sea-orm (Postgres), SMTP email, Rate limiting with Redis, and deployment.
 - [api-error](https://github.com/centreon/rs-api-error): A proc macro to define HTTP errors in a thiserror way. It automatically implements `IntoResponse` for your error types. Allowing you to directly return `Result<(), MyError` from your axum handlers.
 - [axum-helmet](https://github.com/danielkov/rust-helmet): A security middleware library for popular Rust web frameworks, with first-class `axum` support. (Add on 2026.04.27)
+- [Feature Flag Service](https://github.com/webrowse/feature-flag-service-backend/): A production-ready feature flag management service built with Rust, Axum, and PostgreSQL. (Addedon 2026.04.27)
 
 ## Project showcase
 
