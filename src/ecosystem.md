@@ -123,6 +123,7 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [openapi-rs](https://github.com/baerwang/openapi-rs/tree/main/examples/axum) | This project adds a middleware layer to axum using openapi-rs, enabling automatic request validation and processing based on OpenAPI 3.1 specifications. It helps ensure that the server behavior strictly follows the OpenAPI contract.
 - [axum-rest-api-example](https://github.com/sheroz/axum-rest-api-sample): REST API Web service in Rust using axum, JSON Web Tokens (JWT), SQLx, PostgreSQL, Redis, Docker, structured error handling, and end-to-end API tests.
 - [tower-mcp](https://github.com/joshrotenberg/tower-mcp): Tower-native Model Context Protocol (MCP) implementation
+- [xidl](https://github.com/xidl/xidl): Using axum just like tonic, declare IDL, then generate server, client and OpenAPI. (Added on 2026.04.27)
 
 ## Tutorials
 
