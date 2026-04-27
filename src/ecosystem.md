@@ -76,6 +76,7 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [api-error](https://github.com/centreon/rs-api-error): A proc macro to define HTTP errors in a thiserror way. It automatically implements `IntoResponse` for your error types. Allowing you to directly return `Result<(), MyError` from your axum handlers.
 - [axum-helmet](https://github.com/danielkov/rust-helmet): A security middleware library for popular Rust web frameworks, with first-class `axum` support. (Add on 2026.04.27)
 - [Feature Flag Service](https://github.com/webrowse/feature-flag-service-backend/): A production-ready feature flag management service built with Rust, Axum, and PostgreSQL. (Addedon 2026.04.27)
+- [seamjs](https://github.com/canmi21/seam): Compile-time rendering framework where UI Stack (e.g. React...) pages are pre-rendered at build time and Axum serves them via Rust-native HTML slot injection (~1ms/page), with typed RPC procedures codegen'd from a shared manifest. (Added on 2026.04.27)
 
 ## Project showcase
 
