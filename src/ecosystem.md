@@ -126,6 +126,7 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [axum-rest-api-example](https://github.com/sheroz/axum-rest-api-sample): REST API Web service in Rust using axum, JSON Web Tokens (JWT), SQLx, PostgreSQL, Redis, Docker, structured error handling, and end-to-end API tests.
 - [tower-mcp](https://github.com/joshrotenberg/tower-mcp): Tower-native Model Context Protocol (MCP) implementation
 - [xidl](https://github.com/xidl/xidl): Using axum just like tonic, declare IDL, then generate server, client and OpenAPI. (Added on 2026.04.27)
+- [KeyCompute](https://github.com/aiqubits/keycompute): KeyCompute is a high-performance, scalable, and ready-to-use AI computing power service platform. (Added on 2026.04.27)
 
 ## Tutorials
 
