@@ -19,8 +19,8 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [tower-cookies](https://crates.io/crates/tower-cookies): Cookie manager middleware
 - [axum-flash](https://crates.io/crates/axum-flash): One-time notifications (aka flash messages) for axum.
 - [axum-msgpack](https://crates.io/crates/axum-msgpack): MessagePack Extractors for axum.
-- [axum-sqlx-tx](https://crates.io/crates/axum-sqlx-tx): Request-bound [SQLx](https://github.com/launchbadge/sqlx#readme) transactions with automatic commit/rollback based on response.
-- [aliri_axum](https://docs.rs/aliri_axum) and [aliri_tower](https://docs.rs/aliri_tower): JWT validation middleware and OAuth2 scopes enforcing extractors.
+- [axum-sqlx-tx](https://crates.io/crates/axum-sqlx-tx): Request-bound [SQLx](https://crates.io/crates/sqlx) transactions with automatic commit/rollback based on response.
+- [aliri_axum](https://crates.io/crates/aliri_axum) and [aliri_tower](https://crates.io/crates/aliri_tower): JWT validation middleware and OAuth2 scopes enforcing extractors.
 - [ezsockets](https://github.com/gbaranski/ezsockets): Easy to use WebSocket library that integrates with axum.
 - [axum_session](https://github.com/AscendingCreations/AxumSessions): Database persistent sessions like pythons flask_sessionstore for axum.
 - [axum_session_auth](https://github.com/AscendingCreations/AxumSessionsAuth): Persistent session based user login with rights management for axum.
@@ -88,7 +88,7 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [notify.run](https://github.com/notify-run/notify-run-rs): HTTP-to-WebPush relay for sending desktop/mobile notifications to yourself, written in Rust.
 - [turbo.fish](https://turbo.fish/) ([repository](https://github.com/jplatte/turbo.fish)): Find out for yourself 😉
 - [Book Management](https://github.com/lz1998/axum-book-management): CRUD system of book-management with ORM and JWT for educational purposes.
-- [realworld-axum-sqlx](https://github.com/launchbadge/realworld-axum-sqlx): A Rust implementation of the [Realworld](https://github.com/gothinkster/realworld) demo app spec using axum and [SQLx](https://github.com/launchbadge/sqlx).
+- [realworld-axum-sqlx](https://github.com/launchbadge/realworld-axum-sqlx): A Rust implementation of the [Realworld](https://github.com/gothinkster/realworld) demo app spec using axum and [SQLx](https://crates.io/crates/sqlx).
   See https://github.com/davidpdrsn/realworld-axum-sqlx for a fork with up to date dependencies.
 - [Rustapi](https://github.com/ndelvalle/rustapi): RESTful API template using MongoDB
 - [axum-postgres-template](https://github.com/koskeller/axum-postgres-template): Production-ready axum + PostgreSQL application template
