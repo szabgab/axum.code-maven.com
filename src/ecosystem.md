@@ -74,6 +74,7 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [tower-resilience](https://github.com/joshrotenberg/tower-resilience): Resilience middleware for tower: circuit breaker, bulkhead, retry, rate limiter, and more.
 - [AxumKit](https://github.com/levish0/AxumKit): Production-ready Rust web backend template with authentication, sea-orm (Postgres), SMTP email, Rate limiting with Redis, and deployment.
 - [api-error](https://github.com/centreon/rs-api-error): A proc macro to define HTTP errors in a thiserror way. It automatically implements `IntoResponse` for your error types. Allowing you to directly return `Result<(), MyError` from your axum handlers.
+- [axum-helmet](https://github.com/danielkov/rust-helmet): A security middleware library for popular Rust web frameworks, with first-class `axum` support. (Add on 2026.04.27)
 
 ## Project showcase
 
