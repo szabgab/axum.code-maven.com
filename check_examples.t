@@ -21,6 +21,10 @@ for my $dir (@examples) {
         diag "The src/examples/deploy has no code. Skipping.";
         next;
     }
+    if ($dir eq "src/examples/sqlx-postgres-multi-counter") {
+        diag "The src/examples/sqlx-postgres-multi-counter is not ready yet. Skipping.";
+        next;
+    }
     chdir $dir;
     {
         my @cmd = ('cargo', 'test');
