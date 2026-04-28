@@ -84,6 +84,13 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [ROAPI](https://github.com/roapi/roapi): Create full-fledged APIs for static datasets without writing a single line of code. (axum 0.8)
 - [turbo.fish](https://turbo.fish/) ([repository](https://github.com/jplatte/turbo.fish)): Find out for yourself 😉 (archived; axum 0.8.1)
 - [RUSTfulapi](https://github.com/robatipoor/rustfulapi): Reusable template for building REST Web Services in Rust. Uses axum and SeaORM. (axum 0.8.1)
+- [CLOMonitor](https://clomonitor.io) ([repository](https://github.com/cncf/clomonitor)): Checks open source projects repositories to verify they meet certain best practices. (axum 0.8.8)
+- [wastebin](https://github.com/matze/wastebin): A minimalist pastebin service. (axum 0.8)
+- [axum_admin](https://github.com/lingdu1234/axum_admin): An admin panel built with **axum**, Sea-orm and Vue 3. (axum 0.8.8)
+- [rgit](https://github.com/w4/rgit/): A blazingly fast Git repository browser, compatible with- and heavily inspired by cgit. (axum 0.8)
+- [gitore](https://codeberg.org/kallisti5/gitore): A fork of `rgit`. (axum 0.8)
+- [lishuuro.org](https://github.com/uros-5/backend-lishuuro): Small chess variant server that uses axum for the backend. (axum 0.8.3)
+- [freedit](https://github.com/freedit-org/freedit): A forum powered by rust. (axum 0.8.7)
 
 ## 🖼️ Project showcase (old)
 
@@ -98,25 +105,18 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [Jotsy](https://github.com/ohsayan/jotsy): Self-hosted notes app powered by Skytable, axum and Tokio. (axum 0.5.17)
 - [Svix](https://www.svix.com) ([repository](https://github.com/svix/svix-webhooks)): Enterprise-ready webhook service. (axum 0.7.9)
 - [emojied](https://github.com/sekunho/emojied): Shorten URLs to emojis! (axum 0.6)
+- [Pinging.net](https://www.pinging.net) ([repository](https://github.com/benhansenslc/pinging)): A new way to check and monitor your internet connection. (axum 0.7)
+- [sandbox_axum_observability](https://github.com/davidB/sandbox_axum_observability) A Sandbox/showcase project to experiment axum and observability (tracing, opentelemetry, jaeger, grafana tempo,...) (axum 0.6)
+- [Petclinic](https://github.com/danipardo/petclinic): A port of Spring Framework's Petclinic showcase project to axum. (axum 0.5.13)
+- [axum-middleware-example](https://github.com/casbin-rs/axum-middleware-example): A authorization application using axum, Casbin and Diesel, with JWT support. (axum 0.5.13)
+- [circleci-hook](https://github.com/DavidS/circleci-hook): Translate CircleCI WebHooks to OpenTelemetry traces to improve your test insights. Add detail with otel-cli to capture individual commands. Use the TRACEPARENT integration to add details from your tests. (axum 0.6.0)
+- [axum-http-auth-example](https://github.com/i0n/axum-http-auth-example): axum http auth example using postgres and redis. (axum 0.6.0)
+- [Deaftone](https://github.com/Deaftone/Deaftone): Lightweight music server. With a clean and simple API. (axum 0.7.3)
+- [dropit](https://github.com/scotow/dropit): Temporary file hosting. (axum 0.5.13)
+- [cobrust](https://github.com/scotow/cobrust): Multiplayer web based snake game. (axum 0.6.1)
 
 ## 🖼️ Project showcase
 
-- [CLOMonitor](https://clomonitor.io) ([repository](https://github.com/cncf/clomonitor)): Checks open source projects repositories to verify they meet certain best practices.
-- [Pinging.net](https://www.pinging.net) ([repository](https://github.com/benhansenslc/pinging)): A new way to check and monitor your internet connection.
-- [wastebin](https://github.com/matze/wastebin): A minimalist pastebin service.
-- [sandbox_axum_observability](https://github.com/davidB/sandbox_axum_observability) A Sandbox/showcase project to experiment axum and observability (tracing, opentelemetry, jaeger, grafana tempo,...)
-- [axum_admin](https://github.com/lingdu1234/axum_admin): An admin panel built with **axum**, Sea-orm and Vue 3.
-- [rgit](https://github.com/w4/rgit/): A blazingly fast Git repository browser, compatible with- and heavily inspired by cgit.
-- [gitore](https://codeberg.org/kallisti5/gitore): A fork of `rgit`.
-- [Petclinic](https://github.com/danipardo/petclinic): A port of Spring Framework's Petclinic showcase project to axum
-- [axum-middleware-example](https://github.com/casbin-rs/axum-middleware-example): A authorization application using axum, Casbin and Diesel, with JWT support.
-- [circleci-hook](https://github.com/DavidS/circleci-hook): Translate CircleCI WebHooks to OpenTelemetry traces to improve your test insights. Add detail with otel-cli to capture individual commands. Use the TRACEPARENT integration to add details from your tests.
-- [lishuuro.org](https://github.com/uros-5/backend-lishuuro): Small chess variant server that uses axum for the backend.
-- [freedit](https://github.com/freedit-org/freedit): A forum powered by rust.
-- [axum-http-auth-example](https://github.com/i0n/axum-http-auth-example): axum http auth example using postgres and redis.
-- [Deaftone](https://github.com/Deaftone/Deaftone): Lightweight music server. With a clean and simple API
-- [dropit](https://github.com/scotow/dropit): Temporary file hosting.
-- [cobrust](https://github.com/scotow/cobrust): Multiplayer web based snake game.
 - [meta-cross](https://github.com/scotow/meta-cross): Tweaked version of Tic-Tac-Toe.
 - [httq](https://github.com/scotow/httq) HTTP to MQTT trivial proxy.
 - [Pods-Blitz](https://pods-blitz.org) Self-hosted podcast publisher. Uses the crates axum-login, password-auth, sqlx and handlebars (for HTML templates).
