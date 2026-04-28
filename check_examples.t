@@ -9,16 +9,16 @@ use IPC::Run qw(run timeout);
 use Test::More;
 
 my $root = cwd();
-say "Root $root";
+diag "Root $root";
 
 my $globber = $ENV{EXAMPLES} // '';
 my @examples = glob "src/examples/$globber*";
-say Dumper \@examples;
+diag explain \@examples;
 
 for my $dir (@examples) {
-    say $dir;
+    diag "DIR: $dir";
     if ($dir eq "src/examples/deploy") {
-        say "The src/examples/deploy has no code. Skipping.";
+        diag "The src/examples/deploy has no code. Skipping.";
         next;
     }
     chdir $dir;
