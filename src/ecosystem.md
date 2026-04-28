@@ -82,26 +82,25 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 
 - [webshelf](https://github.com/aiqubits/webshelf): 🤘 A convenient way to develop your web service with one click. (axum 0.8.8)
 - [ROAPI](https://github.com/roapi/roapi): Create full-fledged APIs for static datasets without writing a single line of code. (axum 0.8)
+- [turbo.fish](https://turbo.fish/) ([repository](https://github.com/jplatte/turbo.fish)): Find out for yourself 😉 (archived; axum 0.8.1)
+- [RUSTfulapi](https://github.com/robatipoor/rustfulapi): Reusable template for building REST Web Services in Rust. Uses axum and SeaORM. (axum 0.8.1)
 
-## 🖼️ Old Project showcase
+## 🖼️ Project showcase (old)
 
 - [HomeDisk](https://github.com/MedzikUser/HomeDisk): ☁️ Fast, lightweight and Open Source local cloud for your data. (archived; axum 0.6)
 - [Houseflow](https://github.com/gbaranski/houseflow): House automation platform written in Rust. (axum 0.5.1)
 - [JWT Auth](https://github.com/Z4RX/axum_jwt_example): JWT auth service for educational purposes. (axum 0.4)
 - [notify.run](https://github.com/notify-run/notify-run-rs): HTTP-to-WebPush relay for sending desktop/mobile notifications to yourself, written in Rust. (axum 0.3)
+- [Book Management](https://github.com/lz1998/axum-book-management): CRUD system of book-management with ORM and JWT for educational purposes. (axum 0.7)
+- [realworld-axum-sqlx](https://github.com/launchbadge/realworld-axum-sqlx): A Rust implementation of the [Realworld](https://github.com/gothinkster/realworld) demo app spec using axum and [SQLx](https://crates.io/crates/sqlx). (axum 0.3.4) See [fork](https://github.com/davidpdrsn/realworld-axum-sqlx) with newer dependencies. (axum 0.7.3)
+- [Rustapi](https://github.com/ndelvalle/rustapi): RESTful API template using MongoDB. (axum 0.7.5)
+- [axum-postgres-template](https://github.com/koskeller/axum-postgres-template): Production-ready axum + PostgreSQL application template. (axum 0.7.6)
+- [Jotsy](https://github.com/ohsayan/jotsy): Self-hosted notes app powered by Skytable, axum and Tokio. (axum 0.5.17)
+- [Svix](https://www.svix.com) ([repository](https://github.com/svix/svix-webhooks)): Enterprise-ready webhook service. (axum 0.7.9)
+- [emojied](https://github.com/sekunho/emojied): Shorten URLs to emojis! (axum 0.6)
 
 ## 🖼️ Project showcase
 
-- [turbo.fish](https://turbo.fish/) ([repository](https://github.com/jplatte/turbo.fish)): Find out for yourself 😉
-- [Book Management](https://github.com/lz1998/axum-book-management): CRUD system of book-management with ORM and JWT for educational purposes.
-- [realworld-axum-sqlx](https://github.com/launchbadge/realworld-axum-sqlx): A Rust implementation of the [Realworld](https://github.com/gothinkster/realworld) demo app spec using axum and [SQLx](https://crates.io/crates/sqlx).
-  See https://github.com/davidpdrsn/realworld-axum-sqlx for a fork with up to date dependencies.
-- [Rustapi](https://github.com/ndelvalle/rustapi): RESTful API template using MongoDB
-- [axum-postgres-template](https://github.com/koskeller/axum-postgres-template): Production-ready axum + PostgreSQL application template
-- [RUSTfulapi](https://github.com/robatipoor/rustfulapi): Reusable template for building REST Web Services in Rust. Uses axum and SeaORM.
-- [Jotsy](https://github.com/ohsayan/jotsy): Self-hosted notes app powered by Skytable, axum and Tokio
-- [Svix](https://www.svix.com) ([repository](https://github.com/svix/svix-webhooks)): Enterprise-ready webhook service
-- [emojied](https://github.com/sekunho/emojied): Shorten URLs to emojis!
 - [CLOMonitor](https://clomonitor.io) ([repository](https://github.com/cncf/clomonitor)): Checks open source projects repositories to verify they meet certain best practices.
 - [Pinging.net](https://www.pinging.net) ([repository](https://github.com/benhansenslc/pinging)): A new way to check and monitor your internet connection.
 - [wastebin](https://github.com/matze/wastebin): A minimalist pastebin service.
