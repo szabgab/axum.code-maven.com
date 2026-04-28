@@ -12,7 +12,7 @@ If you find a broken link or incorrect information, please feel free to open an 
 
 I have not checked these projects and I don't necessarily recommend them. Use them at your own discretion.
 
-## Community maintained axum ecosystem
+## 📦 Community maintained axum ecosystem
 
 - [axum-server](https://crates.io/crates/axum-server): axum-server is a hyper server implementation designed to be used with axum.
 - [axum-typed-websockets](https://crates.io/crates/axum-typed-websockets): `axum::extract::ws` with type safe messages.
@@ -78,14 +78,20 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [Feature Flag Service](https://github.com/webrowse/feature-flag-service-backend/): A production-ready feature flag management service built with Rust, Axum, and PostgreSQL. (Addedon 2026.04.27)
 - [seamjs](https://github.com/canmi21/seam): Compile-time rendering framework where UI Stack (e.g. React...) pages are pre-rendered at build time and Axum serves them via Rust-native HTML slot injection (~1ms/page), with typed RPC procedures codegen'd from a shared manifest. (Added on 2026.04.27)
 
-## Project showcase
+## 🖼️ Project showcase (axum 0.8.x)
 
-- [webshelf](https://github.com/aiqubits/webshelf): 🤘 A convenient way to develop your web service with one click.
-- [HomeDisk](https://github.com/MedzikUser/HomeDisk): ☁️ Fast, lightweight and Open Source local cloud for your data.
-- [Houseflow](https://github.com/gbaranski/houseflow): House automation platform written in Rust.
-- [JWT Auth](https://github.com/Z4RX/axum_jwt_example): JWT auth service for educational purposes.
-- [ROAPI](https://github.com/roapi/roapi): Create full-fledged APIs for static datasets without writing a single line of code.
-- [notify.run](https://github.com/notify-run/notify-run-rs): HTTP-to-WebPush relay for sending desktop/mobile notifications to yourself, written in Rust.
+- [webshelf](https://github.com/aiqubits/webshelf): 🤘 A convenient way to develop your web service with one click. (axum 0.8.8)
+- [ROAPI](https://github.com/roapi/roapi): Create full-fledged APIs for static datasets without writing a single line of code. (axum 0.8)
+
+## 🖼️ Old Project showcase
+
+- [HomeDisk](https://github.com/MedzikUser/HomeDisk): ☁️ Fast, lightweight and Open Source local cloud for your data. (archived; axum 0.6)
+- [Houseflow](https://github.com/gbaranski/houseflow): House automation platform written in Rust. (axum 0.5.1)
+- [JWT Auth](https://github.com/Z4RX/axum_jwt_example): JWT auth service for educational purposes. (axum 0.4)
+- [notify.run](https://github.com/notify-run/notify-run-rs): HTTP-to-WebPush relay for sending desktop/mobile notifications to yourself, written in Rust. (axum 0.3)
+
+## 🖼️ Project showcase
+
 - [turbo.fish](https://turbo.fish/) ([repository](https://github.com/jplatte/turbo.fish)): Find out for yourself 😉
 - [Book Management](https://github.com/lz1998/axum-book-management): CRUD system of book-management with ORM and JWT for educational purposes.
 - [realworld-axum-sqlx](https://github.com/launchbadge/realworld-axum-sqlx): A Rust implementation of the [Realworld](https://github.com/gothinkster/realworld) demo app spec using axum and [SQLx](https://crates.io/crates/sqlx).
@@ -129,7 +135,7 @@ I have not checked these projects and I don't necessarily recommend them. Use th
 - [xidl](https://github.com/xidl/xidl): Using axum just like tonic, declare IDL, then generate server, client and OpenAPI. (Added on 2026.04.27)
 - [KeyCompute](https://github.com/aiqubits/keycompute): KeyCompute is a high-performance, scalable, and ready-to-use AI computing power service platform. (Added on 2026.04.27)
 
-## Tutorials
+## 📖 Tutorials
 
 - [Rust on Nails](https://rust-on-nails.com/): A full stack architecture for Rust web applications
 - [axum-tutorial](https://github.com/programatik29/axum-tutorial): axum tutorial for beginners. [website](https://programatik29.github.io/axum-tutorial/)
