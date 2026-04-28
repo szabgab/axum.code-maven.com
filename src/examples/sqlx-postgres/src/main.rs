@@ -13,8 +13,10 @@ use std::time::Duration;
 async fn main_page() -> Html<&'static str> {
     Html(
         r#"
-    <a href="/v1">Version 1</a><br>
-    <a href="/v2">Version 2</a><br>
+        <h2>Connection Pool Extractor</h2>
+        <a href="/v1">Select text</a><br>
+        <hr>
+        <a href="/v2">Version 2</a><br>
     "#,
     )
 }
@@ -23,7 +25,7 @@ async fn main_page() -> Html<&'static str> {
 async fn using_connection_pool_extractor(
     State(pool): State<PgPool>,
 ) -> Result<String, (StatusCode, String)> {
-    sqlx::query_scalar("SELECT 'hello world from pg'")
+    sqlx::query_scalar("SELECT 'Hello world from pg'")
         .fetch_one(&pool)
         .await
         .map_err(internal_error)
@@ -52,7 +54,7 @@ where
 async fn using_connection_extractor(
     DatabaseConnection(mut conn): DatabaseConnection,
 ) -> Result<String, (StatusCode, String)> {
-    sqlx::query_scalar("SELECT 'hello world from pg'")
+    sqlx::query_scalar("SELECT version();")
         .fetch_one(&mut *conn)
         .await
         .map_err(internal_error)
