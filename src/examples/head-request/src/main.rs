@@ -10,9 +10,20 @@ async fn main_page() -> Response {
     ([("x-my-header", "header of main page")], Html(content)).into_response()
 }
 
+async fn show_method(method: http::Method) -> Html<String> {
+    println!("{:?}", method);
+    Html(String::from("Look at the console"))
+}
+
 async fn just_head() -> Response {
     ([("x-my-header", "header from HEAD of just_head")]).into_response()
 }
+
+async fn just_get() -> Response {
+    println!("do some heavy computing task in GET");
+    ([("x-my-header", "header from HEAD of just_head")]).into_response()
+}
+
 
 async fn get_head_handler(method: http::Method) -> Response {
     if method == http::Method::HEAD {
@@ -31,8 +42,10 @@ async fn get_head_handler(method: http::Method) -> Response {
 fn create_route() -> Router {
     Router::new()
         .route("/", get(main_page))
-        .route("/just-head", head(just_head))
+        .route("/separate", head(just_head))
+        .route("/separate", get(just_get))
         .route("/get-head", get(get_head_handler))
+        .route("/show", get(show_method))
 }
 
 #[tokio::main]
