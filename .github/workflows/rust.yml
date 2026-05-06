@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: install cpanm and multiple modules
-        uses: perl-actions/install-with-cpanm@v1
+        uses: perl-actions/install-with-cpanm@v2
         with:
           install: |
             IPC::Run
